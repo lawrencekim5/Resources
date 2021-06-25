@@ -1,18 +1,31 @@
 # 1.0 Threats, Attacks and Vulnerabilities
 ### 1.1 Given a scenario, analyze indicators of compromise and determine the type of malware.
 **Viruses**
+
 **Crypto-malware**
+
 **Ransomware**
+
 **Worm**
+
 **Trojan**
+
 **Rootkit**
+
 **Keylogger**
+
 **Adware**
+
 **Spyware**
+
 **Bots**
+
 **RAT**
+
 **Logic bomb**
+
 **Backdoor**
+
 ### 1.2 Compare and contrast types of attacks.
 **Social engineering**
  - Phishing
@@ -33,6 +46,7 @@
       - Familiarity
       - Trust
       - Urgency
+
 **Application/service attacks**
  - DoS
  - DDoS
@@ -59,6 +73,7 @@
       - Refactoring
  - MAC spoofing
  - IP spoofing
+
 **Wireless attacks**
  - Replay
  - IV
@@ -71,6 +86,7 @@
  - RFID
  - NFC
  - Disassociation
+
 **Cryptographic attacks**
  - Birthday
  - Known plain text/cipher text
@@ -90,9 +106,88 @@
  - Nation states/APT
  - Insiders
  - Competitors
+
 **Attributes of actors**
  - Internal/external
  - Level of sophistication
  - Resources/funding
  - Intent/motivation
+
 **Use of open-source intelligence**
+
+### 1.4 Explain penetration testing concepts.
+**Active reconnaissance**
+
+**Passive reconnaissance**
+
+**Pivot**
+
+**Initial exploitation**
+
+**Persistence**
+
+**Excalation of privilege**
+
+**Unknown environment**
+
+**Known environment**
+
+**Partially known enviornment**
+
+**Penetration testing vs. vulnerability scanning**
+
+### 1.5 Explain vulnerability scanning concepts.
+**Passively test security controls**
+
+**Identify vulnerability**
+
+**Identify lack of security controls**
+
+**Identify common misconfigurations**
+
+**Intrusive vs. non-intrusive**
+
+**Credentialed vs. non-credentialed**
+
+**False positive**
+
+### 1.5 Explain the impact associated with types of vulnerabilities.
+**Race conditions**
+
+**Vulnerabilities due to:**
+ - End-of-life systems
+ - Embedded systems
+ - Lack of vendor support
+
+**Improper input handling**
+
+**Improper error handling**
+
+**Misconfiguration/weak configuration**
+
+**Default configuration**
+
+**Resource exhaustion**
+
+**Untrained users**
+
+**Improperly configured accounts**
+
+**Vulnerable business processes**
+
+**Weak cipher suites and implementations**
+
+**Memory/buffer vulnerability**
+ - Memory leak
+ - Integer overflow
+ - Buffer overflow
+ - Pointer dereference
+ - DLL injection
+
+**System sprawl/undocumented assets**
+
+**Architecture/design weaknesses**
+
+**New threats/zero day**
+
+**Improper certificate and key management**
