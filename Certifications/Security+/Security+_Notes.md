@@ -127,16 +127,27 @@
 **Use of open-source intelligence**
 
 ### 1.4 Explain penetration testing concepts.
+
 **Active reconnaissance**
+
 **Passive reconnaissance**
+
 **Pivot**
+
 **Initial exploitation**
+
 **Persistence**
+
 **Escalation of privilege**
+
 **Unknown environment**
+
 **Known environment**
+
 **Partially known environment**
+
 **Penetration testing vs. vulnerability scanning**
+
 
 ### 1.5 Explain vulnerability scanning concepts.
 **Passively test security controls**
@@ -155,6 +166,7 @@
 
 
 ### 1.6 Explain the impact associated with types of vulnerabilities.
+
 **Race conditions**
 
 **Vulnerabilities due to:**
