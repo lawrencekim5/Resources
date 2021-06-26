@@ -151,7 +151,7 @@
 
 **False positive**
 
-### 1.5 Explain the impact associated with types of vulnerabilities.
+### 1.6 Explain the impact associated with types of vulnerabilities.
 **Race conditions**
 
 **Vulnerabilities due to:**
@@ -191,3 +191,50 @@
 **New threats/zero day**
 
 **Improper certificate and key management**
+
+# 2.0 Technologies and Tools
+
+### 2.1 Install and configure network components. both hardware and software-based, to support organizational security.
+
+**Firewall**
+
+ - ACL
+ - Application-based vs. network-based
+ - Stateful vs. stateless
+ - Implicit deny
+
+**VPN Concentrator**
+
+ - Remote access vs. site-to-site
+ - IPSec
+      - Tunnel mode
+      - Transport mode
+      - AH
+      - ESP
+ - Split tunnel vs. full tunnel
+ - TLS
+ - Always-on VPN
+
+**NIPS/NIDS**
+
+ - Signature based
+ - Heuristic/behavorial
+ - Anomaly
+ - Inline vs. passive
+ - In-band vs. out-of-band
+ - Rules
+ - Analytics
+      - False positive
+      - False negative
+
+**Router**
+
+ - ACLs
+ - Antispoofing
+
+**Switch**
+
+ - Port security
+ - Layer 2 vs. Layer 3
+ - Loop prevention
+ - Flood guard
