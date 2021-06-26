@@ -45,13 +45,13 @@
 - Hoax
 - Watering hole attack
 - Principles (reasons for effectiveness)
-		- Authority
-		- Intimidation
-		- Consensus
-		- Scarcity
-		- Familiarity
-		- Trust
-		- Urgency
+   - Authority
+   - Intimidation
+   - Consensus
+   - Scarcity
+   - Familiarity
+   - Trust
+   - Urgency
 
 **Application/service attacks**
 
