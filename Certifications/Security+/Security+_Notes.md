@@ -1075,7 +1075,7 @@
 - Recovery
 - Lessons learned
 
-### 5.2 Summarize basic concepts of forensics.
+### 5.5 Summarize basic concepts of forensics.
 
 **Order of volatility**
 
