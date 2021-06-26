@@ -162,49 +162,65 @@
 - End-of-life systems
 - Embedded systems
 - Lack of vendor support
-• Improper input handling
-• Improper error handling
-• Misconfiguration/weak configuration
-• Default configuration
-• Resource exhaustion
-• Untrained users
-• Improperly configured accounts
-• Vulnerable business processes
-• Weak cipher suites and implementations
 
-• Memory/buffer vulnerability
+**Improper input handling**
+
+**Improper error handling**
+
+**Misconfiguration/weak configuration**
+
+**Default configuration**
+
+**Resource exhaustion**
+
+**Untrained users**
+
+**Improperly configured accounts**
+
+**Vulnerable business processes**
+
+**Weak cipher suites and implementations**
+
+**Memory/buffer vulnerability**
 - Memory leak
 - Integer overflow
 - Buffer overflow
 - Pointer dereference
 - DLL injection
-• System sprawl/undocumented assets
-• Architecture/design weaknesses
-• New threats/zero day
-• Improper certificate and
-key management
+
+**System sprawl/undocumented assets**
+
+**Architecture/design weaknesses**
+
+**New threats/zero day**
+
+**Improper certificate and key management**
 
 
-2.0 Technologies and Tools
-2.1
+# 2.0 Technologies and Tools
+### 2.1 Install and configure network components, both hardwareand software-based, to support organizational security.
 
-Install and configure network components, both hardwareand software-based, to support organizational security.
-• Firewall
+**Firewall**
+
 - ACL
 - Application-based vs. network-based
 - Stateful vs. stateless
 - Implicit deny
-• VPN concentrator
+
+**VPN concentrator**
+
 - Remote access vs. site-to-site
 - IPSec
-		 - Tunnel mode
-		 - Transport mode
-		- AH
-		- ESP
+   - Tunnel mode
+   - Transport mode
+   - AH
+   - ESP
 - Split tunnel vs. full tunnel
 - TLS
 - Always-on VPN
-• NIPS/NIDS
+
+**NIPS/NIDS**
+
 - Signature-based
 - Heuristic/behavioral
 - Anomaly
@@ -212,31 +228,38 @@ Install and configure network components, both hardwareand software-based, to su
 - In-band vs. out-of-band
 - Rules
 - Analytics
-		 - False positive
-		 - False negative
+   - False positive
+   - False negative
 
-2.2
+**Router**
 
-• Router
 - ACLs
 - Antispoofing
-• Switch
+
+**Switch**
+
 - Port security
 - Layer 2 vs. Layer 3
 - Loop prevention
 - Flood guard
-• Proxy
+
+**Proxy**
+
 - Forward and reverse proxy
 - Transparent
 - Application/multipurpose
-• Load balancer
+
+**Load balancer**
+
 - Scheduling
-		- Affinity
-		- Round-robin
+   - Affinity
+   - Round-robin
 - Active-passive
 - Active-active
 - Virtual IPs
-• Access point
+
+**Access point**
+
 - SSID
 - MAC filtering
 - Signal strength
@@ -245,55 +268,79 @@ Install and configure network components, both hardwareand software-based, to su
 - Fat vs. thin
 - Controller-based vs. standalone
 
-• SIEM
+**SIEM**
+
 - Aggregation
 - Correlation
 - Automated alerting and triggers
 - Time synchronization
 - Event deduplication
 - Logs/WORM
-• DLP
+
+**DLP**
+
 - USB blocking
 - Cloud-based
 - Email
-• NAC
+
+**NAC**
+
 - Dissolvable vs. permanent
 - Host health checks
 - Agent vs. agentless
-• Mail gateway
+
+**Mail gateway**
+
 - Spam filter
 - DLP
 - Encryption
-• Bridge
-• SSL/TLS accelerators
-• SSL decryptors
-• Media gateway
-• Hardware security module
 
-Given a scenario, use appropriate software tools
-to assess the security posture of an organization.
-• Protocol analyzer
-• Network scanners
+**Bridge**
+
+**SSL/TLS accelerators**
+
+**SSL decryptors**
+
+**Media gateway**
+
+**Hardware security module**
+
+
+### 2.2 Given a scenario, use appropriate software tools to assess the security posture of an organization.
+
+**Protocol analyzer**
+
+**Network scanners**
+
 - Rogue system detection
 - Network mapping
-• Wireless scanners/cracker
-• Password cracker
-• Vulnerability scanner
-• Configuration compliance scanner
-• Exploitation frameworks
 
-• Data sanitization tools
-• Steganography tools
-• Honeypot
-• Backup utilities
-• Banner grabbing
-• Passive vs. active
-• Command line tools
+**Wireless scanners/cracker**
+
+**Password cracker**
+
+**Vulnerability scanner**
+
+**Configuration compliance scanner**
+
+**Exploitation frameworks**
+
+**Data sanitization tools**
+
+**Steganography tools**
+
+**Honeypot**
+
+**Backup utilities**
+
+**Banner grabbing**
+
+**Passive vs. active**
+
+**Command line tools**
+
 - ping
 - netstat
-
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
-
 - tracert
 - nslookup/dig
 - arp
@@ -302,33 +349,77 @@ CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-50
 - nmap
 - netcat
 
-2.0 Technologies and Tools
-2.3
+### 2.3 Given a scenario, troubleshoot common security issues.
 
-Given a scenario, troubleshoot common security issues.
-• Unencrypted credentials/clear text
-• Logs and events anomalies
-• Permission issues
-• Access violations
-• Certificate issues
-• Data exfiltration
-• Misconfigured devices
+**Unencrypted credentials/clear text**
+
+**Logs and events anomalies**
+
+**Permission issues**
+
+**Access violations**
+
+**Certificate issues**
+
+**Data exfiltration**
+
+**Misconfigured devices**
+
 - Firewall
+- Content filter
+- Access points
 
-2.4
+**Weak security configurations**
 
-• Application allow list
-• Removable media control
-• Advanced malware tools
-• Patch management tools
+**Personnel issues**
 
-• UTM
-• DLP
-• Data execution prevention
-• Web application firewall
+- Policy violation
+- Insider threat
+- Social engineering
+- Social media
+- Personal email
 
-Given a scenario, deploy mobile devices securely.
-• Connection methods
+**Unauthorized software**
+
+**Baseline deviation**
+
+**License compliance violation (availability/integrity)**
+
+**Asset management**
+
+**Authentication issues**
+
+### 2.4 Given a scenario, analyze and interpret output from security technologies.
+
+**HIDS/HIPS**
+
+**Antivirus**
+
+**File integrity check**
+
+**Host-based firewall**
+
+**Application allow list**
+
+**Removable media control**
+
+**Advanced malware tools**
+
+**Patch management tools**
+
+**UTM**
+
+**DLP**
+
+**Data execution prevention**
+
+**Web application firewall**
+
+
+### 2.5 Given a scenario, deploy mobile devices securely.
+
+**Connection methods**
+
 - Cellular
 - WiFi
 - SATCOM
@@ -337,40 +428,14 @@ Given a scenario, deploy mobile devices securely.
 - ANT
 - Infrared
 - USB
-• Mobile device management concepts
+
+**Mobile device management concepts**
+
 - Application management
 - Content management
 - Remote wipe
 - Geofencing
 - Geolocation
-
-2.6
-
-- Personal email
-• Unauthorized software
-• Baseline deviation
-• License compliance violation
-(availability/integrity)
-• Asset management
-• Authentication issues
-
-Given a scenario, analyze and interpret output from security technologies.
-• HIDS/HIPS
-• Antivirus
-• File integrity check
-• Host-based firewall
-
-2.5
-
-- Content filter
-- Access points
-• Weak security configurations
-• Personnel issues
-- Policy violation
-- Insider threat
-- Social engineering
-- Social media
-
 - Screen locks
 - Push notification services
 - Passwords and pins
@@ -379,14 +444,15 @@ Given a scenario, analyze and interpret output from security technologies.
 - Containerization
 - Storage segmentation
 - Full device encryption
-• Enforcement and monitoring for:
+
+**Enforcement and monitoring for:**
+
 - Third-party app stores
 - Rooting/jailbreaking
 - Sideloading
 - Custom firmware
 - Carrier unlocking
 - Firmware OTA updates
-
 - Camera use
 - SMS/MMS
 - External media
@@ -396,15 +462,19 @@ Given a scenario, analyze and interpret output from security technologies.
 - WiFi direct/ad hoc
 - Tethering
 - Payment methods
-• Deployment models
+
+**Deployment models**
+
 - BYOD
 - COPE
 - CYOD
 - Corporate-owned
 - VDI
 
-Given a scenario, implement secure protocols.
-• Protocols
+### 2.6 Given a scenario, implement secure protocols.
+
+**Protocols**
+
 - DNSSEC
 - SSH
 - S/MIME
@@ -412,18 +482,16 @@ Given a scenario, implement secure protocols.
 - LDAPS
 - FTPS
 - SFTP
-
 - SNMPv3
 - SSL/TLS
 - HTTPS
 - Secure POP/IMAP
-• Use cases
+
+**Use cases**
+
 - Voice and video
 - Time synchronization
 - Email and web
-
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
-
 - File transfer
 - Directory services
 - Remote access
@@ -432,31 +500,39 @@ CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-50
 - Network address allocation
 - Subscription services
 
-3.0 Architecture and Design
-3.1
+# 3.0 Architecture and Design
 
-Explain use cases and purpose for frameworks, best
-practices and secure configuration guides.
-• Industry-standard frameworks
-and reference architectures
+### 3.1 Explain use cases and purpose for frameworks, best practices and secure configuration guides.
+
+**Industry-standard frameworks and reference architectures**
+
 - Regulatory
 - Non-regulatory
 - National vs. international
 - Industry-specific frameworks
 
-3.2
+**Benchmarks/secure configuration guides**
 
-• Defense-in-depth/layered security
+- Platform/vendor-specific guides
+   - Web server
+   - Operating system
+   - Application server
+   - Network infrastructure devices
+- General purpose guides
+
+**Defense-in-depth/layered security**
+
 - Vendor diversity
 - Control diversity
-		- Administrative
-		- Technical
+   - Administrative
+   - Technical
 - User training
 
-Given a scenario, implement secure network architecture concepts.
-• Zones/topologies
-- Screened subnet (previously
-known as demilitarized zone)
+### 3.2 Given a scenario, implement secure network architecture concepts.
+
+**Zones/topologies**
+
+- Screened subnet (previously known as demilitarized zone)
 - Extranet
 - Intranet
 - Wireless
@@ -464,30 +540,24 @@ known as demilitarized zone)
 - Honeynets
 - NAT
 - Ad hoc
-• Segregation/segmentation/isolation
 
-3.3
-
-• Benchmarks/secure configuration guides
-- Platform/vendor-specific guides
-		 - Web server
-		 - Operating system
-		 - Application server
-		 - Network infrastructure devices
-- General purpose guides
+**Segregation/segmentation/isolation**
 
 - Physical
 - Logical (VLAN)
 - Virtualization
 - Air gaps
-• Tunneling/VPN
+
+**Tunneling/VPN**
+
 - Site-to-site
 - Remote access
-• Security device/technology placement
+
+**Security device/technology placement**
+
 - Sensors
 - Collectors
 - Correlation engines
-
 - Filters
 - Proxies
 - Firewalls
@@ -497,10 +567,13 @@ known as demilitarized zone)
 - DDoS mitigator
 - Aggregation switches
 - Taps and port mirror
-• SDN
 
-Given a scenario, implement secure systems design.
-• Hardware/firmware security
+**SDN**
+
+### 3.3 Given a scenario, implement secure systems design.
+
+**Hardware/firmware security**
+
 - FDE/SED
 - TPM
 - HSM
@@ -509,27 +582,26 @@ Given a scenario, implement secure systems design.
 - Supply chain
 - Hardware root of trust
 - EMI/EMP
-• Operating systems
-- Types
-		- Network
-		- Server
 
-		- Workstation
-		- Appliance
-		- Kiosk
-		 - Mobile OS
+**Operating systems**
+
+- Types
+   - Network
+   - Server
+   - Workstation
+   - Appliance
+   - Kiosk
+   - Mobile OS
 - Patch management
-- Disabling unnecessary
-ports and services
+- Disabling unnecessary ports and services
 - Least functionality
 - Secure configurations
 - Trusted operating system
 - Application allow list/deny list
 - Disable default accounts/passwords
 
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
+**Peripherals**
 
-• Peripherals
 - Wireless keyboards
 - Wireless mice
 - Displays
@@ -538,56 +610,68 @@ CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-50
 - External storage devices
 - Digital cameras
 
-3.0 Architecture and Design
-3.4
 
-Explain the importance of secure staging deployment concepts.
-• Sandboxing
-• Environment
+### 3.4 Explain the importance of secure staging deployment concepts.
+
+**Sandboxing**
+
+**Environment**
+
 - Development
 - Test
+- Staging
+- Production
 
-3.5
+**Secure baseline**
 
-Explain the security implications of embedded systems.
-• SCADA/ICS
-• Smart devices/IoT
+**Integrity measurement**
+
+
+### 3.5 Explain the security implications of embedded systems.
+
+**SCADA/ICS**
+
+**Smart devices/IoT**
+
 - Wearable technology
 - Home automation
-• HVAC
 
-3.6
+**HVAC**
 
-• SoC
-• RTOS
-• Printers/MFDs
-• Camera systems
+**SoC**
 
-• Special purpose
+**RTOS**
+
+**Printers/MFDs**
+
+**Camera systems**
+
+**Special purpose**
+
 - Medical devices
 - Vehicles
 - Aircraft/UAV
 
-Summarize secure application development and deployment concepts.
-• Development life-cycle models
+### 3.6 Summarize secure application development and deployment concepts.
+
+**Development life-cycle models**
+
 - Waterfall vs. Agile
-• Secure DevOps
+
+**Secure DevOps**
+
 - Security automation
 - Continuous integration
 - Baselining
 - Immutable systems
 - Infrastructure as code
-• Version control and change management
-• Provisioning and deprovisioning
 
-3.7
+**Version control and change management**
 
-- Staging
-- Production
-• Secure baseline
-• Integrity measurement
+**Provisioning and deprovisioning**
 
-• Secure coding techniques
+**Secure coding techniques**
+
 - Proper error handling
 - Proper input validation
 - Normalization
@@ -596,30 +680,38 @@ Summarize secure application development and deployment concepts.
 - Encryption
 - Obfuscation/camouflage
 - Code reuse/dead code
-- Server-side vs. client-side
-execution and validation
-
+- Server-side vs. client-side execution and validation
 - Memory management
 - Use of third-party libraries and SDKs
 - Data exposure
-• Code quality and testing
+
+**Code quality and testing**
+
 - Static code analyzers
 - Dynamic analysis (e.g., fuzzing)
 - Stress testing
 - Sandboxing
 - Model verification
-• Compiled vs. runtime code
 
-Summarize cloud and virtualization concepts.
-• Hypervisor
+**Compiled vs. runtime code**
+
+
+### 3.7 Summarize cloud and virtualization concepts.
+
+**Hypervisor**
+
 - Type I
 - Type II
 - Application cells/containers
-• VM sprawl avoidance
-• VM escape protection
-• Cloud storage
 
-• Cloud deployment models
+**VM sprawl avoidance**
+
+**VM escape protection**
+
+**Cloud storage**
+
+**Cloud deployment models**
+
 - SaaS
 - PaaS
 - IaaS
@@ -628,130 +720,168 @@ Summarize cloud and virtualization concepts.
 - Hybrid
 - Community
 
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
+**On-premise vs. hosted vs. cloud**
 
-• On-premise vs. hosted vs. cloud
-• VDI/VDE
-• Cloud access security broker
-• Security as a service
+**VDI/VDE**
 
-3.0 Architecture and Design
-3.8
+**Cloud access security broker**
 
-Explain how resiliency and automation strategies reduce risk.
-• Automation/scripting
+**Security as a service**
+
+
+### 3.8 Explain how resiliency and automation strategies reduce risk.
+
+**Automation/scripting**
+
 - Automated courses of action
 - Continuous monitoring
 - Configuration validation
-• Templates
-• Master image
 
-3.9
+**Templates**
 
-• Non-persistence
+**Master image**
+
+**Non-persistence**
+
 - Snapshots
 - Revert to known state
 - Rollback to known configuration
 - Live boot media
-• Elasticity
 
-• Scalability
-• Distributive allocation
-• Redundancy
-• Fault tolerance
-• High availability
-• RAID
+**Elasticity**
 
-Explain the importance of physical security controls.
-• Lighting
-• Signs
-• Fencing/gate/cage
-• Security guards
-• Alarms
-• Safe
-• Secure cabinets/enclosures
-• Protected distribution/Protected cabling
-• Airgap
-• Access control vestibule
-• Faraday cage
-• Lock types
-• Biometrics
-• Barricades/bollards
-• Tokens/cards
+**Scalability**
 
-• Environmental controls
+**Distributive allocation**
+
+**Redundancy**
+
+**Fault tolerance**
+
+**High availability**
+
+**RAID**
+
+### 3.9 Explain the importance of physical security controls.
+
+**Lighting**
+
+**Signs**
+
+**Fencing/gate/cage**
+
+**Security guards**
+
+**Alarms**
+
+**Safe**
+
+**Secure cabinets/enclosures**
+
+**Protected distribution/Protected cabling**
+
+**Airgap**
+
+**Access control vestibule**
+
+**Faraday cage**
+
+**Lock types**
+
+**Biometrics**
+
+**Barricades/bollards**
+
+**Tokens/cards**
+
+**Environmental controls**
+
 - HVAC
 - Hot and cold aisles
 - Fire suppression
-• Cable locks
-• Screen filters
-• Cameras
-• Motion detection
-• Logs
-• Infrared detection
-• Key management
 
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
+**Cable locks**
 
-4.0 Identity and Access Management
-4.1
+**Screen filters**
 
-Compare and contrast identity and access management concepts
-• Identification, authentication,
-authorization and accounting (AAA)
-• Multifactor authentication
+**Cameras**
+
+**Motion detection**
+
+**Logs**
+
+**Infrared detection**
+
+**Key management**
+
+
+# 4.0 Identity and Access Management
+
+### 4.1 Compare and contrast identity and access management concepts
+
+**Identification, authentication, authorization and accounting (AAA)**
+
+**Multifactor authentication**
+
 - Something you are
-
-4.2
-
-• MSCHAP
-• RADIUS
-• SAML
-• OpenID Connect
-• OAUTH
-
-• Shibboleth
-• Secure token
-• NTLM
-
-Given a scenario, implement identity and access management controls.
-•
-
-•
-
-4.4
-
-• Federation
-• Single sign-on
-• Transitive trust
-
-Given a scenario, install and configure identity and access services.
-• LDAP
-• Kerberos
-• TACACS+
-• CHAP
-• PAP
-
-4.3
-
 - Something you have
 - Something you know
 - Somewhere you are
 - Something you do
 
-- Access control models
+**Federation**
+
+**Single sign-on**
+
+**Transitive trust**
+
+
+### 4.2 Given a scenario, install and configure identity and access services.
+
+**LDAP**
+
+**Kerberos**
+
+**TACACS+**
+
+**CHAP**
+
+**PAP**
+
+**MSCHAP**
+
+**RADIUS**
+
+**SAML**
+
+**OpenID Connect**
+
+**OAUTH**
+
+**Shibboleth**
+
+**Secure token**
+
+**NTLM**
+
+
+### 4.3 Given a scenario, implement identity and access management controls.
+
+**Access control models**
+
 - MAC
 - DAC
 - ABAC
 - Role-based access control
 - Rule-based access control
-Physical access control
+
+**Physical access control**
+
 - Proximity cards
 - Smart cards
 
-•
+**Biometric factors**
 
-Biometric factors
 - Fingerprint scanner
 - Retinal scanner
 - Iris scanner
@@ -761,28 +891,36 @@ Biometric factors
 - False rejection rate
 - Crossover error rate
 
-• Tokens
+**Tokens**
+
 - Hardware
 - Software
 - HOTP/TOTP
-• Certificate-based authentication
+
+**Certificate-based authentication**
+
 - PIV/CAC/smart card
 - IEEE 802.1x
-• File system security
-• Database security
 
-Given a scenario, differentiate common account management practices.
-• Account types
+**File system security**
+
+**Database security**
+
+
+### 4.4 Given a scenario, differentiate common account management practices.
+
+**Account types**
+
 - User account
-- Shared and generic
-accounts/credentials
+- Shared and generic accounts/credentials
 - Guest accounts
 - Service accounts
 - Privileged accounts
-• General Concepts
+
+**General Concepts**
+
 - Least privilege
 - Onboarding/offboarding
-
 - Permission auditing and review
 - Usage auditing and review
 - Time-of-day restrictions
@@ -791,11 +929,10 @@ accounts/credentials
 - Account maintenance
 - Group-based access control
 - Location-based policies
-• Account policy enforcement
+
+**Account policy enforcement**
+
 - Credential management
-
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
-
 - Group policy
 - Password complexity
 - Expiration
@@ -806,186 +943,210 @@ CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-50
 - Password reuse
 - Password length
 
-5.0 Risk Management
-5.1
 
-Explain the importance of policies, plans and
-procedures related to organizational security.
-• Standard operating procedure
-• Agreement types
+# 5.0 Risk Management
+
+### 5.1 Explain the importance of policies, plans and procedures related to organizational security.
+
+**Standard operating procedure**
+
+**Agreement types**
+
 - BPA
 - SLA
 - ISA
 - MOU/MOA
-• Personnel management
+
+**Personnel management**
+
 - Mandatory vacations
 - Job rotation
 - Separation of duties
-
-5.2
-
+- Clean desk
+- Background checks
+- Exit interviews
+- Role-based awareness training
+   - Data owner
+   - Systems administrator
+   - System owner
+   - User
+   - Privileged user
+   - Executive user
 - NDA
 - Onboarding
 - Continuing education
 - Acceptable use policy/rules of behavior
 - Adverse actions
-• General security policies
+
+**General security policies**
+
 - Social media networks/applications
 - Personal email
 
-Summarize business impact analysis concepts.
-• RTO/RPO
-• MTBF
-• MTTR
-• Mission-essential functions
-• Identification of critical systems
+### 5.2 Summarize business impact analysis concepts.
 
-5.3
+**RTO/RPO**
 
-- Clean desk
-- Background checks
-- Exit interviews
-- Role-based awareness training
-		 - Data owner
-		 - Systems administrator
-		 - System owner
-		 - User
-		 - Privileged user
-		 - Executive user
+**MTBF**
 
-• Single point of failure
-• Impact
+**MTTR**
+
+**Mission-essential functions**
+
+**Identification of critical systems**
+
+**Single point of failure**
+
+**Impact**
+
 - Life
 - Property
 - Safety
-
 - Finance
 - Reputation
-• Privacy impact assessment
-• Privacy threshold assessment
 
-Explain risk management processes and concepts.
-• Threat assessment
+**Privacy impact assessment**
+
+**Privacy threshold assessment**
+
+
+### 5.3 Explain risk management processes and concepts.
+
+**Threat assessment**
+
 - Environmental
 - Artificial/manufactured
 - Internal vs. external
-• Risk assessment
+
+**Risk assessment**
+
 - SLE
 - ALE
 - ARO
 - Asset value
 - Risk register
-
 - Likelihood of occurrence
 - Supply chain assessment
 - Impact
 - Quantitative
 - Qualitative
 - Testing
-		 - Penetration testing authorization
-		 - Vulnerability testing
-		
-authorization
-
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
+   - Penetration testing authorization
+   - Vulnerability testing authorization
 
 - Risk response techniques
-		- Accept
-		- Transfer
-		- Avoid
-		- Mitigate
-• Change management
+   - Accept
+   - Transfer
+   - Avoid
+   - Mitigate
 
-5.0 Risk Management
-5.4
+**Change management**
 
-Given a scenario, follow incident response procedures.
-• Incident response plan
-- Documented incident
-types/category definitions
+
+
+### 5.4 Given a scenario, follow incident response procedures.
+
+**Incident response plan**
+
+- Documented incident types/category definitions
 - Roles and responsibilities
 - Reporting requirements/escalation
+- Cyber-incident response teams
+- Exercise
 
-5.5
+**Incident response process**
 
-• Recovery
-• Strategic intelligence/
-counterintelligence gathering
+- Preparation
+- Identification
+- Containment
+- Eradication
+- Recovery
+- Lessons learned
+
+### 5.2 Summarize basic concepts of forensics.
+
+**Order of volatility**
+
+**Chain of custody**
+
+**Legal hold**
+
+**Data acquisition**
+
+- Capture system image
+- Network traffic and logs
+- Capture video
+- Record time offset
+- Take hashes
+- Screenshots
+- Witness interviews
+
+**Preservation**
+
+**Recovery**
+
+**Strategic intelligence/counterintelligence gathering**
+
 - Active logging
-• Track person hours
 
+**Track person hours**
+
+### 5.6 Explain disaster recovery and continuity of operations concepts.
+
+**Recovery sites**
+
+- Hot site
+- Warm site
+- Cold site
+
+**Order of restoration**
+
+**Backup concepts**
+
+- Differential
+- Incremental
 - Snapshots
 - Full
-• Geographic considerations
+
+**Geographic considerations**
+
 - Off-site backups
 - Distance
 - Location selection
 - Legal implications
 - Data sovereignty
 
-• Continuity of operations planning
+**Continuity of operations planning**
+
 - Exercises/tabletop
 - After-action reports
 - Failover
 - Alternate processing sites
 - Alternate business practices
 
-Compare and contrast various types of controls.
-• Deterrent
-• Preventive
-• Detective
+### 5.7 Compare and contrast various types of controls.
 
-5.8
+**Deterrent**
 
-- Capture video
-- Record time offset
-- Take hashes
-- Screenshots
-- Witness interviews
-• Preservation
+**Preventive**
 
-Explain disaster recovery and continuity of operations concepts.
-• Recovery sites
-- Hot site
-- Warm site
-- Cold site
-• Order of restoration
-• Backup concepts
-- Differential
-- Incremental
+**Detective**
 
-5.7
+**Corrective**
 
-- Containment
-- Eradication
-- Recovery
-- Lessons learned
+**Compensating**
 
-Summarize basic concepts of forensics.
-• Order of volatility
-• Chain of custody
-• Legal hold
-• Data acquisition
-- Capture system image
-- Network traffic and logs
+**Technical**
 
-5.6
+**Administrative**
 
-- Cyber-incident response teams
-- Exercise
-• Incident response process
-- Preparation
-- Identification
+**Physical**
 
-• Corrective
-• Compensating
-• Technical
 
-• Administrative
-• Physical
+### 5.8 Given a scenario, carry out data security and privacy practices.
 
-Given a scenario, carry out data security and privacy practices.
-• Data destruction and media sanitization
+**Data destruction and media sanitization**
+
 - Burning
 - Shredding
 - Pulping
@@ -994,7 +1155,8 @@ Given a scenario, carry out data security and privacy practices.
 - Purging
 - Wiping
 
-• Data sensitivity labeling and handling
+**Data sensitivity labeling and handling**
+
 - Confidential
 - Private
 - Public
@@ -1002,54 +1164,80 @@ Given a scenario, carry out data security and privacy practices.
 - PII
 - PHI
 
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
+**Data roles**
 
-• Data roles
 - Owner
 - Steward/custodian
 - Privacy officer
-• Data retention
-• Legal and compliance
 
-6.0 Cryptography and PKI
-6.1
+**Data retention**
 
-Compare and contrast basic concepts of cryptography.
-• Symmetric algorithms
-• Modes of operation
-• Asymmetric algorithms
-• Hashing
-• Salt, IV, nonce
-• Elliptic curve
-• Weak/deprecated algorithms
-• Key exchange
-• Digital signatures
-• Diffusion
-• Confusion
-• Collision
-• Steganography
-• Obfuscation
-• Stream vs. block
+**Legal and compliance**
 
-6.2
 
-• Key strength
-• Session keys
-• Ephemeral key
-• Secret algorithm
-• Data-in-transit
-• Data-at-rest
-• Data-in-use
-• Random/pseudo-random
-number generation
-• Key stretching
-• Implementation vs. algorithm selection
+# 6.0 Cryptography and PKI
+
+### 6.1 Compare and contrast basic concepts of cryptography.
+
+**Symmetric algorithms**
+
+**Modes of operation**
+
+**Asymmetric algorithms**
+
+**Hashing**
+
+**Salt, IV, nonce**
+
+**Elliptic curve**
+
+**Weak/deprecated algorithms**
+
+**Key exchange**
+
+**Digital signatures**
+
+**Diffusion**
+
+**Confusion**
+
+**Collision**
+
+**Steganography**
+
+**Obfuscation**
+
+**Stream vs. block**
+
+**Key strength**
+
+**Session keys**
+
+**Ephemeral key**
+
+**Secret algorithm**
+
+**Data-in-transit**
+
+**Data-at-rest**
+
+**Data-in-use**
+
+**Random/pseudo-random number generation**
+
+**Key stretching**
+
+**Implementation vs. algorithm selection**
+
 - Crypto service provider
 - Crypto modules
-• Perfect forward secrecy
-• Security through obscurity
 
-• Common use cases
+**Perfect forward secrecy**
+
+**Security through obscurity**
+
+**Common use cases**
+
 - Low power devices
 - Low latency
 - High resiliency
@@ -1060,73 +1248,85 @@ number generation
 - Supporting non-repudiation
 - Resource vs. security constraints
 
-Explain cryptography algorithms and their basic characteristics.
-• Symmetric algorithms
+
+### 6.2 Explain cryptography algorithms and their basic characteristics.
+
+**Symmetric algorithms**
+
 - AES
 - DES
 - 3DES
 - RC4
 - Blowfish/Twofish
-• Cipher modes
+
+**Cipher modes**
+
 - CBC
 - GCM
 - ECB
 - CTR
 - Stream vs. block
 
-• Asymmetric algorithms
+**Asymmetric algorithms**
+
 - RSA
 - DSA
 - Diffie-Hellman
-		- Groups
-		- DHE
-		- ECDHE
+   - Groups
+   - DHE
+   - ECDHE
 - Elliptic curve
 - PGP/GPG
-• Hashing algorithms
+
+**Hashing algorithms**
+
 - MD5
 - SHA
-
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
-
 - HMAC
 - RIPEMD
-• Key stretching algorithms
+
+**Key stretching algorithms**
+
 - BCRYPT
 - PBKDF2
-• Obfuscation
+
+**Obfuscation**
+
 - XOR
 - ROT13
 - Substitution ciphers
 
-6.0 Cryptography and PKI
-6.3
 
-Given a scenario, install and configure wireless security settings.
-• Cryptographic protocols
+### 6.3 Given a scenario, install and configure wireless security settings.
+
+**Cryptographic protocols**
+
 - WPA
 - WPA2
 - CCMP
 - TKIP
 
-6.4
+**Authentication protocols**
 
-• Authentication protocols
 - EAP
 - PEAP
 - EAP-FAST
 - EAP-TLS
 - EAP-TTLS
-
 - IEEE 802.1x
 - RADIUS Federation
-• Methods
+
+**Methods**
+
 - PSK vs. Enterprise vs. Open
 - WPS
 - Captive portals
 
-Given a scenario, implement public key infrastructure.
-• Components
+
+### 6.4 Given a scenario, implement public key infrastructure.
+
+**Components**
+
 - CA
 - Intermediate CA
 - CRL
@@ -1136,29 +1336,31 @@ Given a scenario, implement public key infrastructure.
 - Public key
 - Private key
 - Object identifiers (OID)
-• Concepts
-- Online vs. offline CA
 
+**Concepts**
+
+- Online vs. offline CA
 - Stapling
 - Pinning
 - Trust model
 - Key escrow
 - Certificate chaining
-• Types of certificates
+
+**Types of certificates**
+
 - Wildcard
 - SAN
 - Code signing
 - Self-signed
 - Machine/computer
 - Email
-
-CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-501)
-
 - User
 - Root
 - Domain validation
 - Extended validation
-• Certificate formats
+
+**Certificate formats**
+
 - DER
 - PEM
 - PFX
@@ -1166,18 +1368,14 @@ CompTIA Security+ Certification Exam Objectives Version 7.0 (Exam Number: SY0-50
 - P12
 - P7B
 
+
+
 CompTIA Security+ Acronyms
 The following is a list of acronyms that appear on the CompTIA Security+ exam.
 Candidates are encouraged to review the complete list and attain a working
 knowledge of all listed acronyms as part of a comprehensive exam preparation
 program.
-ACRONYM
 
-SPELLED OUT
-
-ACRONYM
-
-SPELLED OUT
 
 3DES
 AAA
