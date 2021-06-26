@@ -71,13 +71,13 @@
 - Replay
 - Pass the hash
 - Hijacking and related attacks
-		 - Clickjacking
-		 - Session hijacking
-		 - URL hijacking
-		 - Typo squatting
+   - Clickjacking
+   - Session hijacking
+   - URL hijacking
+   - Typo squatting
 - Driver manipulation
-		- Shimming
-		- Refactoring
+   - Shimming
+   - Refactoring
 - MAC spoofing
 - IP spoofing
 
@@ -102,7 +102,7 @@
 - Rainbow tables
 - Dictionary
 - Brute force
-		 - Online vs. offline
+   - Online vs. offline
 - Collision
 - Downgrade
 - Replay
