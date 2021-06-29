@@ -712,8 +712,21 @@
 
 **Hypervisor**
 
+      A hypervisor is the software that creates, manages, and runs VMs. (VMware)
+      - Host: The physical system hosting the VMs. Requires more resources than a typical system to be effective.
+      - Guest: Operating systems that run on the host system.
+      - Host elasticity and scalability: Ability to resize host capacity based on load.
+      
+      Virtualization provides the best ROI when an organization has underutilized servers.
+
 - Type I
+
+      Run directly on the system hardware. AKA bare-metal hypervisor. Does not need to run within an operating system.
+
 - Type II
+
+      Run as a software on the host system.
+
 - Application cells/containers
 
 **VM sprawl avoidance**
@@ -1138,22 +1151,64 @@
 
 ### 5.7 Compare and contrast various types of controls.
 
+      Technical, administrative, and physical describe the types of controls. Deterrent, preventive, detective, corrective,
+      and compensating describe the goal of the control.
+
 **Deterrent**
+
+      Discourage threats
+      Ex: cable locks, hardware locks
 
 **Preventive**
 
+      Prevent security incidents from occuring in the first place.
+      Ex: 
+      - Hardening: making a system more secure than its default configuration. Done through layered security (disabling unnecessary
+                   ports and services, implementing secure protocols, strong password policies, and disabling unnecessary accounts)
+      - Security awareness and training: ensures that users are aware of vulnerabilities and social engineering techniques.
+      - Security guards: Verifies identities to prevent unauthorized access. Can also serve as a detterent.
+      - Change management: makes administrators unable to make changes on the fly. Is an operational control that serves as a preventative control.
+      - Account disablement policy: disable ex-employee user accounts to prevent unauthorized access.
+
 **Detective**
 
+      Detect when vulnerabilities have been exploited.
+      Ex:
+      - Log monitoring: logs record details of activity on systems and networks.
+      - Trend analysis: can analyze trends to detect increase in attacks on a specific system.
+      - Security audit: determine the security posture of an organization
+      - Video surveillance: CCTV can detect physical activity
+      - Motion detection: detects movement
+      
 **Corrective**
+
+      Attempt to reverse the impact of a security incident.
+      Ex:
+      - IPS: can detect attacks and modify 
+      - Backups: allow for systesm to be recovered
 
 **Compensating**
 
+      Compensation controls are alternative controls used when the primary control is unavailable. 
+      Ex: Smart card policy enacted but not issued to employees yet. TOTP used to maintain temporary security.
+
 **Technical**
+
+      Uses technology to reduce vulnerabilities. After an administrator installs a technical control, the technical
+      controll will provide protection automatically.
+      Ex: Encryption, antivirus, IDs and IPS, firewalls, least privilege principles, motion detectors, fire suppression systems.
 
 **Administrative**
 
+      Uses methods that are mandated by organizational policies.
+      Ex: risk assesssments, vulnerability assessments, penetration tests.
+      AKA operational/management controls because they ensure that day-to-day operations comply with security plans.
+      Ex: Awareness and training, configuration and change management, contingency planning
+
 **Physical**
 
+      Physical controls are controls that can be physcially touched. 
+      Ex: lighting, signs, fences, security guards
 
 ### 5.8 Given a scenario, carry out data security and privacy practices.
 
@@ -1316,7 +1371,8 @@
 
 - Resource vs. security constraints
 
-      Encryption requires additional data. 
+      Security must be balanced by the amount of available resources. Encrypted data takes up more disk space and encryption 
+      and decription use up processing time and processing power. The goal is to minizmize costs w/out sacrificing security.
 
       
 
