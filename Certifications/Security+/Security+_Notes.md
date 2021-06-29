@@ -352,11 +352,33 @@
 **Command line tools**
 
 - ping
+
+      used to test connectivity to remote systems and verify domain name resolution. Can be used to test security posture
+      by verifying that routers, firewalls, IPSs clock ICMP traffic when configured to do so. 
+
 - netstat
+
+      Shows TCP/IP statistics for a system. Allows you to view active TCP connections
+
 - tracert
+
+      Lists the routers between two systems. Each router is referred to as a hop. Tracert identifies the IP addresses, sometimes the host name
+      of the hop, and the RTT (round trip time) for each hop. Tracert can help identify faulty routers and modified paths.
+   
 - nslookup/dig
+
+      
+
 - arp
+
+      Command related to ARP but is not the same thing. ARP resolves IP addresses to MAC addresses and stores the results in the ARP cache. The
+      arp command is used to view and manipulate the ARP cache. 
+
 - ipconfig/ip/ifconfig
+
+      Shows TCP/IP information for a system. Includes the IP address, subnet mask, default gateway, MAC address, and the address of the DNS
+      server. Also shows config info for NICs on a system. ifconfig allows the users to also configure NICs such as enabling promiscuous mode.
+
 - tcpdump
 - nmap
 - netcat
@@ -729,9 +751,20 @@
 
 - Application cells/containers
 
+      AKA container virtualization. Runs services and applications in isolated application cells (containers). Apps cannot interact
+      outside of their container. Uses fewer resources, making it more efficient than Type II hypervisors. However, containers must use the
+      host operating system because they do not have their own kernel.
+
 **VM sprawl avoidance**
 
+      VM sprawl occurs when an organization has many VMs that are not managed properly. Unauthorized VMs are liable to security vulnerabilities
+      as administrators may fail to locate and update them with the newest security patches. VMs also increase load onto a server, consuming resources
+      especially when VMs are mismanaged.
+
 **VM escape protection**
+
+      VM escape is an attack that allows the attacker to access the host system from within the VM. Attackers may be able to run code on the VM that 
+      enables them to interact with the hypervisor. Since many VMs are run with administrator privileges, VM escape can give an attacker unlimited control. 
 
 **Cloud storage**
 
@@ -748,6 +781,13 @@
 **On-premise vs. hosted vs. cloud**
 
 **VDI/VDE**
+
+      Virtual desktop interface/virtual desktop environment allow a user to run a desktop interface that runs as a VM on the server.
+      This lowers hardware resource requirements as users can connect to a server over a network and run the desktop operating system
+      from that server.
+      Can be persistent or non-persistent. Persistent virtual desktops allow users to have custom desktop images, but increases disk use.
+      Non-persistent virtual desktops provide all users with a preconfigured snapshot of a desktop that reverts to the original state after
+      the user logs off.
 
 **Cloud access security broker**
 
@@ -769,6 +809,11 @@
 **Non-persistence**
 
 - Snapshots
+
+      Snapshots provide a copy of the VM at a moment in time. The hypervisor takes note of all changes that occur after the snapshot, and
+      can revert back to the snapshot version of the VM whenever needed. Snapshots are usually taken before risky operations because it allows
+      administrators to easily roll back the system to a known good state with a known good configuration.
+
 - Revert to known state
 - Rollback to known configuration
 - Live boot media
