@@ -891,13 +891,42 @@
 
 **Identification, authentication, authorization and accounting (AAA)**
 
+      Identification: claiming an identity such as a username or email address
+      Authentication: proving the claimed identity (i.e. password)
+      Authorization: granting access based on permissions granted to the proven identity
+      Accounting: tracking and recording user activity in logs to create an audit trail
+
 **Multifactor authentication**
 
 - Something you are
+
+      Biometric identification (i.e. fingerprint, retina scan)
+      Biometric ID can sometimes be incorrect.
+      - FAR: False acceptance rate. Identifies percentage of times in which a biometric system incorrectly 
+             identifies an unauthorized user as an authorized user.
+      - FRR: False rejection rate. Identifies percentage of times in which a biometric system incorrectly
+             rejects an authorized user.
+      - CER: Crossover error rate. The point at which FAR = FRR. (Think supply-demand graph)
+
 - Something you have
+
+      USB tokens
+      Smart cards: made up of an embedded certificate and uses PKI. The embedded certificate contains the user's private key
+                   and is matched with the public key. 
+      - CAC: Common Access Card. Special smart card used by the U.S. Department of Defense. Includes photo ID.
+      - PIV: Personal Identity Verification: Special smart card used by U.S. Federal Entities. Includes photo ID.
+
 - Something you know
+
+      Passwords and PINs
+
 - Somewhere you are
+
+      Geofencing, GPS location
+
 - Something you do
+
+      Signatures, gestures on a touch screen
 
 **Federation**
 
@@ -910,7 +939,16 @@
 
 **LDAP**
 
+      Lightweight Directory Access Protocol
+
 **Kerberos**
+
+      Kerberos is a network authentication protocol used in Windows Active Directory domains or in Unix realms. 
+      It provides mutual authentication by using a KDC to issue TGTs. These tickets provide authentification for users
+      when they access resources such as files on a file server
+      It also uses time synchronization, requiring systems to be synchronized within 5 minutes of each other (Kerberos V5). Tickets are
+      are also timestamped and expire accordingly. This prevents replay attacks since the attacker has a limited time to use the ticket.
+      
 
 **TACACS+**
 
@@ -932,7 +970,16 @@
 
 **Secure token**
 
+      Tokens AKA key fobs are small electronic devices that have an LCD that displays a number that changes periodically (Ex: 60 s).
+      Tokens are synced with servers, creating a TOTP. 
+
 **NTLM**
+
+      New technology LAN Manager is a suite of protocols that provide authentication, integrity, and confidentiality in Windows systems.
+      NTLM has three versions which are all not recommended for usage.
+      - NTLM: MD4 hash of password. MD4 has been cracked
+      - NTLMv2: Challenge response authentication protocol. Uses HMAC-MD5 hash of username, password, domainname, time
+      - NTLM2 Session: adds mutual authentication to NTLMv2
 
 
 ### 4.3 Given a scenario, implement identity and access management controls.
@@ -1004,14 +1051,47 @@
 
 - Credential management
 - Group policy
+
+      Group Policy allows administrators to configure settings in a Group Policy object and apply settings the multiple
+      users in the domain. Implemented on a domain controller to easily make changes in the domain. Group Policy is often
+      used to create password policies, implement security settings, configure host-based firewalls, etc.
+
 - Password complexity
+
+      Good complex passwords combine at least 3 out of 4 types: uppercase characters, lowercase characters, numbers, 
+      and special characters.
+      Jan 2016, recommended password length is at least 14 characters.
+      Passwords that are too complex are less secure since they are more likely to be written down.
+
 - Expiration
+
+      Password becomes unusable after a set amount of time (Ex: 45-90 days). Forces users to change passwords.
+
 - Recovery
+   
+      Identity must be verified before a password is reset. The administrator should provide a temporary password
+      tha the user changes later to make sure that only one person knows the password.
+
 - Disablement
 - Lockout
+
+      Lockout policies prevents users from guessing passwords.
+      - Account lockout threshold: maximum # of times a wrong password can be entered. System locks the account when
+                                   threshold is reached
+      - Account lockout duration: How long the account remains locked. Duration of 0 is indefinite and requires
+                                  an administrator to unlock the account.
+
 - Password history
+
+      Password history system remembers past passwords and prevents their reuse. Common to remember the last 24 passwords.
+
 - Password reuse
+
+      Passwords should not be reused. Common to remember the last 24 passwords.
+
 - Password length
+
+      14 characters minimum is standard.
 
 
 # 5.0 Risk Management
