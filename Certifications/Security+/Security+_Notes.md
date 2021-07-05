@@ -932,7 +932,12 @@
 
 **Single sign-on**
 
+      Ability to log into multiple systems by providing credentials once. Primary purpose is identification and authentication. 
+      Does not provide authorization.
+
 **Transitive trust**
+
+      A trusts B. B trusts C. A trusts C through transitive trust.
 
 
 ### 4.2 Given a scenario, install and configure identity and access services.
@@ -940,16 +945,23 @@
 **LDAP**
 
       Lightweight Directory Access Protocol
-
+      Has SSO capabilities. Transmissions are encrypted with TLS.
+      LDAP specifies formats and methods to query directories. Protocols to read/write
+      directories ofver an IP network. Functions similarly to a phone directory.
+      Uses TCP/IP (TCP/389 and UDP/389
+      LDAP database stores information as attributes and fields (attribute=field, Ex: LDAP://CN=WidgetWeb,CN=Users,DC=GCGA,DC=com)
+      - CN = Common Name
+      LDAPS encrypts transmissions with SSL or TLS
+      
 **Kerberos**
 
-      Kerberos is a network authentication protocol used in Windows Active Directory domains or in Unix realms. 
+      Kerberos is a network authentication protocol used in Windows Active Directory domains or in Unix realms that has SSO capabilities.
       It provides mutual authentication by using a KDC to issue TGTs. These tickets provide authentification for users
       when they access resources such as files on a file server
       It also uses time synchronization, requiring systems to be synchronized within 5 minutes of each other (Kerberos V5). Tickets are
       are also timestamped and expire accordingly. This prevents replay attacks since the attacker has a limited time to use the ticket.
       
-
+      
 **TACACS+**
 
 **CHAP**
@@ -962,11 +974,26 @@
 
 **SAML**
 
+      Security Assertion Markup Language
+      Provides federation purposes (SSO) for web-based applications. XML based standard.
+      Three roles:
+      - Principal: user
+      - Identity provider: IdP. Creates, maintains, and manages identity information for principals
+      - Service provider: Entity that provides services to principals. 
+
 **OpenID Connect**
+
+      Works with OAUTH 2.0 to verify end user identity without managing their credentials. Provides identification
+      services and can also personalize user experience.
 
 **OAUTH**
 
+      Open standard that streamlines authorization. Use previous secure account to access protected resources. (Ex: using a
+      Goggle account to make a Minecraft account)
+
 **Shibboleth**
+
+      Open source federated identity solution. Includes Open SAML libraries.
 
 **Secure token**
 
@@ -976,7 +1003,9 @@
 **NTLM**
 
       New technology LAN Manager is a suite of protocols that provide authentication, integrity, and confidentiality in Windows systems.
-      NTLM has three versions which are all not recommended for usage.
+      Windows only
+      NTLM has three versions which are all not recommended for usage. Most have upgraded to Kerberors but still
+      support NTLM for backwards compatibility.
       - NTLM: MD4 hash of password. MD4 has been cracked
       - NTLMv2: Challenge response authentication protocol. Uses HMAC-MD5 hash of username, password, domainname, time
       - NTLM2 Session: adds mutual authentication to NTLMv2
@@ -1029,10 +1058,31 @@
 **Account types**
 
 - User account
+
+      Regular end user account. Assigned privileges based on responsibilities.
+
 - Shared and generic accounts/credentials
+
+      Account management key concepts are identification, authentication, authorization, and accounting. Shared accounts
+      prevent logs from identifying exactly who used that account, preventing accounting. Should be disabled for security
+      purposes.
+
 - Guest accounts
+
+      Account that has limited access. Good for temporary employess. Often disabled and only enabled when needed.
+
 - Service accounts
+
+      Applications and servers that need to run under the context of an account. Ex: SQL Server is a database application
+      that requires access to resources on the server and the network. Administrators configure a standard user account with
+      the required privileges. Only the server or application will then use this service account.
+      Often unmanaged, so they should be configured to not have to comply with password expiration policies to prevent lockout.
+
 - Privileged accounts
+
+      Additional privileges than a user account. Ex: Windows Administrator account. Administrators should use two accounts: administrator
+      for only administration purposes and a user account for everything else. This prevents time spent on the administrator account,
+      making it more difficult for attackers to access.
 
 **General Concepts**
 
@@ -1041,11 +1091,20 @@
 - Permission auditing and review
 - Usage auditing and review
 - Time-of-day restrictions
+
+      Specifies what time users can log into a computer. Can be assigned to each user. For overtime purposes, doesnt log user
+      off when time limit is reached, but prevents making new network connections.
+      Network wise, can restrict access based on computer names or MAC addresses. Can make it so that log on is only possible
+      through one computer.
+
 - Recertification
 - Standard naming convention
 - Account maintenance
 - Group-based access control
 - Location-based policies
+
+      Restrict access based on the location of the user. Geolocation can restrict based on IP addresses, either by blocking
+      foreign IP addresses or whitelisting. 
 
 **Account policy enforcement**
 
@@ -1071,8 +1130,15 @@
    
       Identity must be verified before a password is reset. The administrator should provide a temporary password
       tha the user changes later to make sure that only one person knows the password.
+      Disabled accounts can be reenabled and deleted accounts can be recovered. The latter is much more complex.
 
 - Disablement
+
+      Deleting an account destroys encryption and security keys related to that account. May cause some files to remain
+      encrypted. As such, it is better to disable accounts rather than delete them so that data remains available.
+      Disablement policies can include: disable account when employee is terminated, disabled account during leave of absence,
+                                        and delete account after it is no longer needed.
+
 - Lockout
 
       Lockout policies prevents users from guessing passwords.
