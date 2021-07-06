@@ -1016,10 +1016,41 @@
 **Access control models**
 
 - MAC
+
+      Mandatory access control. Assigns sensitivity labels to subjects and object. When labels match, access is granted. Ex: Users with
+      Top Secret labels can access Top Secret files. Access can also be restricted on a need-to-know basis, meaning that
+      anyone with a Top Secret label can't access all Top Secret files. SELinux (security Enhanced Linux) uses MAC.
+      MAC model lattice divides access into several compartments based on a need-to-know.
+      
+
 - DAC
+
+      Discretionary access control. Every object (files and folders) have an owner. That owner establishes access for the object.
+      NTFS uses DAC.
+
 - ABAC
+
+      Attribute Based Access Control evaluates attributes and grants access based on the value of those attributes. (Ex: employer,
+      inspector, nuclear aware). 
+      Many SDNs use ABAC models. Instead of rules, policy statements are used to grant access. They consist of:
+      - Subject: The user
+      - Object: What the user is trying to access
+      - Action: What the user is trying to do
+      - Environment: Everything outside of subject and object attributes/the context of the access request. Includes: time, location,
+                     protocol, encryption, devices, and communication method.
+      ABAC can function similarly to DAC and MAC. In ABAC, owners can create policies to grant access and attributes function
+      as labels that match users with objects.
+
 - Role-based access control
+
+      Roles are assigned different privileges. A matrix is a planning document that matches roles with the required privileges.
+      Roles can consist of groups. Administrators can assign users to groups and assign privileges to the group.
+
 - Rule-based access control
+
+      Uses rules to control access. ACL are firewall rules that define what traffic is permitted. Rules can be dynamic, detecting
+      attacks and modifying rules or granting additional privileges to a user.
+      Mainly used for routers, firewalls, and advanced implementations can be used for applications.
 
 **Physical access control**
 
@@ -1109,6 +1140,10 @@
 **Account policy enforcement**
 
 - Credential management
+
+      A credential is a system of information that provides an identiy and proves that identity (Ex: username and password).
+      Credential management systems store credentials securely. 
+
 - Group policy
 
       Group Policy allows administrators to configure settings in a Group Policy object and apply settings the multiple
@@ -1125,6 +1160,7 @@
 - Expiration
 
       Password becomes unusable after a set amount of time (Ex: 45-90 days). Forces users to change passwords.
+      Good for temporary contractual workers.
 
 - Recovery
    
@@ -1136,8 +1172,8 @@
 
       Deleting an account destroys encryption and security keys related to that account. May cause some files to remain
       encrypted. As such, it is better to disable accounts rather than delete them so that data remains available.
-      Disablement policies can include: disable account when employee is terminated, disabled account during leave of absence,
-                                        and delete account after it is no longer needed.
+      Disablement policies can include: disable account when employee is terminated, disable account during leave of absence,
+                                        and delete account after some period of time and if it is determined the account is no longer needed.
 
 - Lockout
 
