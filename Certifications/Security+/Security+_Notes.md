@@ -66,6 +66,10 @@
 - ARP poisoning
 - Amplification
 - DNS poisoning
+
+      AKA DNS cache poisoning. Attackers modify the A or AAAA record of a DNS cache, changing the IP address with a bogus IP address.
+      This will redirect users to the malicious site. 
+
 - Domain hijacking
 - Zero day
 - Replay
@@ -215,9 +219,25 @@
 **Firewall**
 
 - ACL
+
+      Blocks specific types of traffic based on IP addresses, port numbers, and protocols.
+
 - Application-based vs. network-based
+
+      Application-based firewalls are software running on a system. These are often host-based. Network-based firewalls are
+      dedicated systems that have additional software to monitor, filter, and log traffic. These have two or more NICs and
+      are located at the broder of a network, between the Intranet (internal network) and the Internet.
+
 - Stateful vs. stateless
+
+      Stateless firewalls block traffic based on a ACL. Stateful firewalls keeps track of sessions and inspects traffic based
+      on its state during a session. Ex: TCP sessions start with a 3-way handshake. If a stateful firewall detects TCP traffic
+      without this handshake, it is recognized as suspicious traffic and is blocked.
+  
 - Implicit deny
+
+      Implicit deny indicates that traffic that is not explicitly approved is implicitly denied. Ex: a single rule that allows HTTPS
+      will block all other traffic if the implicit deny rule is enabled. Is always the last rule in the ACL. "DENY ANY ANY" or"DENY ALL ALL"
 
 **VPN concentrator**
 
@@ -245,21 +265,83 @@
 
 **Router**
 
+      Routers connect multiple network segments into a single network and routes traffic between the segments. 
+
 - ACLs
+
+      Rules implemented on firewalls and routers to determine what traffic is allowed or denied. Router ACLs can block
+      packets based on:
+      - IP addresses and networks: block traffic from specific computers using IP addresses and subnets
+      - Ports: block incoming or outgoing traffic on ports like blocking incoming HTTP but allowing outgoing HTTP on TCP 80
+      - Protocol numbers: ICMP uses port 1 and is commonly used for DoS attacks. Can block ports to prevent abuse.
+
 - Antispoofing
+
+      Attackers spoof by replacing their source IP address with a different one in order to impersonate someone else. Antispoofing
+      can be implemented by modifying the ACL to block specific IP addresses. Ex: private IP addresses are only used on private networks.
+      As such, spoofed private IP addressed can be blocked using the following ACL rule:
+      deny ip 10.0.0.0 0.255.255.255 any
+      deny ip 172.16.0.0 0.15.255.255 any
+      deny ip 192.168.0.0 0.0.255.255 any
 
 **Switch**
 
+      Learns what computers are attached to its physical ports. It uses this knowledge to create internal switched connections
+      when two computers communicate with each other.
+
 - Port security
+
+      Port security limits the computers that connect to physical ports on a switch. This is done by disabling unused physical ports to prevent
+      unauthorized connections or by using MAC filtering to block traffic from unfamiliar MAC addresses.
+
 - Layer 2 vs. Layer 3
+
+      Traditional sitches are Layer 2 devices. The destination MAC address in packets is used to determine the destination port.
+      Routers are Layer 3 devices. They forward traffic based on the destination IP in a packet and block broadcast traffic.
+      A Layer 3 switch mimics router behavior and allows network administrators to create VLANS. It is also protected against ARP
+      attacks because it uses destination IP adresses, not destination MAC addresses.
+
 - Loop prevention
+
+      Switch loops can have similar effects to broadcast storms, potentially disabling switches and degrading performance. Switches can be looped
+      by connecting two ports of the switch together, causing it to send and resent unicast transmissions to itself.
+      STP (Spanning Tree Protocol) and RSTP (Rapid STP) are protocols that enable loop protection.
+
 - Flood guard
 
-**Proxy**
+      MAC flood attacks attempt to overload a switch with different MAC addresses associated with each physical port. Typically, the
+      switch maps each MAC address to its physical port. A MAC fLood attack sends a large amount of traffic with spoofed MAC addresses
+      to the same port. This causes the switch to run out of memory, reverting to a fail-open state, essentially working as a hub instead
+      of a switch. Traffic sent to any port of the switch is now sent to all switch ports, allowing an attacker to connect a protocol
+      analyzer to any port in order to collect all traffic in the switch.
+      
+      Flood guards protect against MAC flood attacks by limiting the amount of memory used to store MAC addresses for each port. Switches
+      raise an alert when the limit is reached, sending a SNMP error message. A flood guard can also limit the max number of MAC addresses
+      supported by a port. This is typically 1, but bridged VMs could access networks using the VM's MAC address but the NIC of the host, 
+      in which case the setting should be set to 2.
 
+**Proxy**
+      
 - Forward and reverse proxy
+
+      A proxy borders the Internet and the Intranet. 
+      Forward proxies forward requests for services from clients. Can improve performance through caching
+      and can also restrict user access to content through filtering.
+      Reverse proxies accept requests from the Internet. It appears to clients as a webserver, but is actually jsut
+      forwarding and returning requests sent to the web server. Used to protect a web server.
+
+
 - Transparent
+
+      Transparent proxies accepts and forwards requests without modifying them. Simplest to set-up and use. Provides caching.
+      Nontransparent proxies can modify and filter requests to block user access to certain sites. URL filters are used
+      to let the proxy know what sites to restrict.
+
 - Application/multipurpose
+
+      Application proxies are used for specific applications. Accepts requests, forwards requests to the appropraite server,
+      and returns requests to the original requestor. A forward proxy for HTTP is a basic application proxy. Most application proxies
+      are multipurposeand can support multiple protocols like HTTP and HTTPS.
 
 **Load balancer**
 
@@ -303,17 +385,38 @@
 
 **Mail gateway**
 
+      A mail gateway is a server that examines and incoming and outgoing email and attempts to reduce associated risks.
+      Located between the email server and the Internet. Common in UTMs.
+
 - Spam filter
+
+      Filters spam.
+
 - DLP
+
+      Examines outgoing email for sensitive information and blocks it if it contains any. Uses keywords and looks for those
+      keywords in emails. Can be set to notify security professionals, the sender, or both whenever an email is blocked.
+
 - Encryption
 
+      Encrypts outgoing mail to ensure confidentiality for data-in-transit. Can also choose to only encrypt certain emails
+      based on policies (Ex: all emails to a certain organization are encrypted). Encryption method varies between vendors 
+      (certificate-based, password-based encryption).
+
 **Bridge**
+
+      Connects multiple networks together. Can be used instead of a router in some situations. Diverts traffic based on the
+      destination MAC address. 
 
 **SSL/TLS accelerators**
 
 **SSL decryptors**
 
 **Media gateway**
+
+      Converts data from the format used on one network to the data format used on another network. Ex: VoIP gateway
+      can convert telephony traffic to an IP-based network. Users can make phone calls using VoIP equipment, in which 
+      the gateway can translate the traffic and transmit it over a traditional phone-line.
 
 **Hardware security module**
 
@@ -367,7 +470,9 @@
    
 - nslookup/dig
 
-      
+      nslookup is used to troubleshoot DNS problems. It can verify that DNS servers can resolve specific host names to IP addresses. dig
+      replaces nslookup on Linux. AKA domain information groper. dig verifies DNS by quering DNS, veryifying that the records exist, and
+      verifying that the DNS server responds.
 
 - arp
 
@@ -443,11 +548,17 @@
 
 **UTM**
 
+      Unified threat management is a single solution that combines multiple security controls (firewall, anti-spam, content filtering, etc.).
+      Meant to increase security while simplifying management. Ex: can provide URL filtering, malware inspection, content inspection, and DDoS mitigation.
+
 **DLP**
 
 **Data execution prevention**
 
 **Web application firewall**
+
+      Firewall designed to protect a web application that is commonly hosted on a web server. Located between a server 
+      hosting a web application and a client. Does not replace a network firewall, is meant for additional security.
 
 
 ### 2.5 Given a scenario, deploy mobile devices securely.
@@ -510,29 +621,96 @@
 **Protocols**
 
 - DNSSEC
+
+      Domain Name System Security Extensions. Prevents DNS poisoning by using digital signatures to validate DNS responses. DNS can
+      confirm the integrity of data if it receives a DNSSEC enabled response that has digital signatures.
+
 - SSH
+
+      TCP 22. Secure shell. Used to encrypt traffic in transit. Can be used to encrypt other protocols such as FTP. Used as a replacement
+      for Telnet because Telnet doesn't encrypt traffic for remote administration. SCP (Secure Copy) is based on SSH and is used to copy
+      encrypted files over a network. 
+
 - S/MIME
 - SRTP
+
+      Secure Real-time Transport Protocol. RTP delivers voice and video over IP networks. Includes VoIP, media streaming, etc.
+      SRTP provides encryption, message authentication, and integrity for RTP. Protects against replay attacks.
+
 - LDAPS
+
+      LDAP uses TCP 389. It is used to communicate with directories like AD.
+      LDAPS encrypts data using TLS and uses port 636
+
 - FTPS
+   
+      File Transfer Protocol Secure. Extension of FTP that uses TLS to encrypt FTP traffic. Some implmentations use TCP 989 and 990.
+      Can also encrypt FTP traffic on TCP 20 and 21.
+  
 - SFTP
+
+      TCP 22. Secure FTP is also based on SSH and is used to transmit files in an encrypted format. Used to encrypt many different protocols.
+
 - SNMPv3
+
+      Simple Network Management Protocol V3.
+
 - SSL/TLS
+
+      Secure Sockets Layer/Transport Layer Security. SSL has a vulnerability that was not patched. TLS is strictly better.
+
 - HTTPS
+
+      HTTP: Hypertext Transfer Protocol. TCP 80. Transmits web traffic on the Internet. Uses HTML to display webpages.
+      HTTPS: TCP 443. Encrypts web traffic to be secure while in transit. Indicated by a lock icon. Uses SSL or TLS. 
+
 - Secure POP/IMAP
+
+      POP3 (Post Office Protocol V3) transfers emails from servers to clients over TCP 110. Secure POP encrypts POP3 with SSL
+      or TLS and can use TCP 995. However, it is recommended to use STARTTLS to create a secure connecion on TCP 110.
+      IMAP4 (Internet Message Acess Protocol V4) stores emails on email servers. Allows users to organize and manage folders on
+      the email server (Ex: Goodle Mail). Uses TCP 143. Secure IMAP encrypts with SSL or TLS and can use TCP 993, but it is
+      recommended to use STARTTLS to use TCP 143.
+      STARTTLS allows encrypted versions of protocols to use the same port as the unencrypted version.
 
 **Use cases**
 
 - Voice and video
 - Time synchronization
+
+      Sometimes systems need to be using the same time. Ex: Kerberos requires systems to be synchronized and within 5 minutes of each other.
+      NTP (Network Time Protocol) causes all members of a domain to synchronize with their domain controller. SNPT (Simple NTP) doesn't use
+      complex algorithms and is less accurate.
+
 - Email and web
 - File transfer
 - Directory services
 - Remote access
+
+      Make changes from a desk computer instead of from a server room. SSH, RDP (Remote Desktop Protocol) TCP or UDP 3389, and VPNs
+      support remote access.
+
 - Domain name resolution
+
+      UDP and TCP 53. DNS's primary use is to resolve domain names to IP addresses. Data is hosted in zones, which are like databases.
+      These zones include records such as:
+      - A: host record. Holds the host name and IPv4 address
+      - AAAA: host record. Holds the host name and TPv6 address.
+
 - Routing and switching
 - Network address allocation
+
+      Private networks are only allowed to have private IP ranges. These are defined in RFC 1918:
+      10.x.y.z
+      1712.16.y.z - 172.32.y.z
+      192.168.y.z
+
+      IPv6 uses unique local addresses instead of private IP addresses
+
 - Subscription services
+
+      Refers to subscription based business models. Common to use HTPPS connections for security. SMTP is used to send automated
+      emails to notify of subscription endings.
 
 # 3.0 Architecture and Design
 
@@ -567,20 +745,49 @@
 **Zones/topologies**
 
 - Screened subnet (previously known as demilitarized zone)
+
+      DMZ. Buffer zone between a private network and the Internet. Allows access to services inside the DMZ by Internet clients
+      and provides additional protection for the Intranet. Commonly uses two firewalls.
+
 - Extranet
+
+      Part of a network that is accessible by authorized entities outside of the network. 
+
 - Intranet
+
+      Internal network. Used to share and communicated with each other internally.
+
 - Wireless
 - Guest
 - Honeynets
 - NAT
+
+      Network Address Translation. Protocol that translates public IP addresses to private and private back to public.
+      PAT (Port Address Translation) is a common use of NAT. NAT makes it so that public IP addresses don't need to be
+      purchased for all clients and also hides private IP addresses from the Internet.
+      Can be either static or dynamic.
+      - Static NAT maps private IPs with public IPs in a one-to-one ratio.
+      - Dynamic NAT maps multiple public IPs in a one-to-many mapping. Public IPs are mapped by load, making each request use
+      - a less-used public IP address.
+
 - Ad hoc
 
 **Segregation/segmentation/isolation**
 
 - Physical
+
+      Physical isolation ensures that networks are not connected to other networks. Physically isolated networks are more secure
+      because they can't be attacked form the Internet.
+
 - Logical (VLAN)
+
+      Logical separation is done through VLANS. Traffic is segmented between logical groups without regard to their physical location.
+      Can also be used to separate traffic types, such as voice traffic on one VLAN and data traffic on a different VLAN.
+
 - Virtualization
 - Air gaps
+
+      Metaphor for physical isolation. Air-gapped systems are not connected to any other systems.
 
 **Tunneling/VPN**
 
@@ -595,11 +802,18 @@
 - Filters
 - Proxies
 - Firewalls
+
+      Filters incoming and outgoing traffic.
+
 - VPN concentrators
 - SSL accelerators
 - Load balancers
 - DDoS mitigator
 - Aggregation switches
+
+      Aggregation switches connect multiple switches together in a network. It lowers the number of ports used by aggregating switches.
+      Commonly placed in the same location as a router.
+
 - Taps and port mirror
 
 **SDN**
@@ -1022,7 +1236,6 @@
       anyone with a Top Secret label can't access all Top Secret files. SELinux (security Enhanced Linux) uses MAC.
       MAC model lattice divides access into several compartments based on a need-to-know.
       
-
 - DAC
 
       Discretionary access control. Every object (files and folders) have an owner. That owner establishes access for the object.
@@ -1512,6 +1725,8 @@
 **Secret algorithm**
 
 **Data-in-transit**
+
+      Data-in-transit is any traffic sent over a network. Protocol analyzers can capture data sent in cleartext and read it. 
 
 **Data-at-rest**
 
