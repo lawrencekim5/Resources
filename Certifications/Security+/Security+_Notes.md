@@ -253,15 +253,43 @@
 
 **NIPS/NIDS**
 
+      NIDS/NIPS are additional software designed to protect networks. Monitors network traffic and protects against
+      network-based attacks. Can use taps and port mirrors to capture traffic. Can not monitor encrypted traffic or
+      traffic on individual hosts.
+
 - Signature-based
+
+      AKA definition-based. Uses a database of known vulnerabilities or attack patterns. Similar to how anti-virus software
+      uses signatures to detect malware. Signatures must be updated to protect against new threats.
+
 - Heuristic/behavioral
+
+      AKA anomaly-based detecction. Starts by identifying a baseline for normal operation or behavior by creating a performance baseline
+      under normal operating conditions.
+
 - Anomaly
+
+      AKA heuristic based detection
+
 - Inline vs. passive
+
+      IPSs are inline, or in-band, with traffic. All traffic passes through the IPS and the IPS can block malicious traffic.
+      IDSs are passive, or out-of-band, with traffic. An IDS monitors network traffic, but the traffic does not go through the IDS.
+
 - In-band vs. out-of-band
 - Rules
+
+      IDSs reports events based on configured rules by administrators. Should be strict enough to not allow false negatives
+      but not too strict to minimize false positives.
+
 - Analytics
    - False positive
+
+         Alert or alarm that is non threatening.
+
    - False negative
+
+         Failure to alert or alarm a threat.
 
 **Router**
 
@@ -355,12 +383,45 @@
 **Access point**
 
 - SSID
+
+      A Service Set Identifier is the name of the wireless network. Older APs have default SSIDs (Ex: Linkys). Newer APs
+      force users to enter a name which is more secure because it gives attackers less information.
+      SSID is broadcast to make it easy for wireless devices to find each other. Disabling SSID broadcast hides the SSID, but 
+      only hides the network from casual users (security through obscurity). Attackers can still use a wireless protocol analyzer
+      to find the SSID even if SSID broadcast is disabled.
+
 - MAC filtering
+
+      All NICs have a MAC address or physical address. MAC filtering can limit the accessibility of a network to only specific MAC addresses.
+      However, attackers can use wireless sniffers to easily see allowed MAC addresses and spoof their address to match the MAC filter.
+
 - Signal strength
+
+      Ranges of APs can be limited to specific rooms or buildings by reducing the APs power level. 
+
 - Band selection/width
+
+      Wireless networks use two primary radio bands: 2.4 GHz and 5 GHz. Devices transmit GHz close to these numbers. 
+      Band width refers to the width of the channel. Wider channels allow more data through, but decreases the distance
+      of radio transmissions and also increases the possibility of interference.
+      APs allow you to select which frequency band to use. 2.4 GHz is often used by bluetooth, microwaves, phones, and 
+      has more potential for interference.
+
 - Antenna types and placement
+
+      Omnidirectional atennas transmit and receive signals from all directions. A directional atenna transmits and receives signals
+      in a single direction and can do so over greater distances. 
+
 - Fat vs. thin
+
+      Fat access points ara AKA stand-alone, intelligent, or autonomous APs. They contain everything needed to connect wireless clients
+      to a wireless network. Includes a routing component, NAT, DHCP, ACLs, etc. Indepently managed. Often used in home networks and small
+      offices.
+      Thin APs are controller-based and are not stand-alone. Administrators can use a wireless controller to manage all thin APs from one place.
+
 - Controller-based vs. standalone
+
+      Controller-based are thin APs. They are not stand-alone and must be managed. Standalone APs are fat and do everything and must be independently managed.
 
 **SIEM**
 
@@ -410,7 +471,17 @@
 
 **SSL/TLS accelerators**
 
+      SSL/TLS accelerators are hardware devices that focus on handling TCP traffic. TLS provides encryption for secure protcols like
+      HTTPS. The process of creating encryptped traffic takes a lot of resources, making off-loading the processes to SSL/TLS accelerators
+      an efficient option. It is best to place these accelerators near its related devices (Ex: next to a web server when off-loading TLS encryption
+      for that web server).
+
 **SSL decryptors**
+
+      Encrypted malware can't be detected by IDSs. SSL decryptiors are placed in the DMZ and have traffic redirected to it. Unencrypted
+      traffic passes with no issue, however encrypted traffic promts the SSL decryptor to create a separate SSL or TLS session between the
+      traffic and the web site it originated from. This allows the SSL decryptor to view the unencrypted traffic to determine if it is malicious.
+      Often used in NIPS because it has to be inline.
 
 **Media gateway**
 
@@ -445,6 +516,9 @@
 **Steganography tools**
 
 **Honeypot**
+
+      Diverts attackers from a live network by enticing them with an attractive, but ultimately useless, server. Enables
+      observation of the attacke to learn about attacker methodologies or even zero-day attacks.
 
 **Backup utilities**
 
@@ -531,6 +605,12 @@
 ### 2.4 Given a scenario, analyze and interpret output from security technologies.
 
 **HIDS/HIPS**
+
+      Host-based Intrusion Detection System: additional software installed on a workstation or server. Monitors
+      traffic that passes through its NIC, detecting attacks on that system. Can detect malicious missed by anti-virus.
+      In contrast to NIDS, HIDS monitors only a signle host.
+      
+      Host-based Intrusion Prevention System: 
 
 **Antivirus**
 
@@ -758,8 +838,18 @@
       Internal network. Used to share and communicated with each other internally.
 
 - Wireless
+
+      Provide a bridge to a wireless network, granting user access to all network resources as if they were on a wired PC.
+
 - Guest
+
+      Wireless network used to provide guests limited network access. Rarely gives network access and gives a way for
+      guest to access web sites or check emails.
+   
 - Honeynets
+
+      Group of honeypots in a separate network or zone. Often created with mutiple virtual servers on a single physical server.
+
 - NAT
 
       Network Address Translation. Protocol that translates public IP addresses to private and private back to public.
@@ -771,6 +861,9 @@
       - a less-used public IP address.
 
 - Ad hoc
+
+      Latin for "as needed." Wireless devices connect to each other without an AP (Ex: ad hoc network to connect two laptops wirelessly).
+      Ad hoc networks are created as needed.
 
 **Segregation/segmentation/isolation**
 
@@ -817,6 +910,10 @@
 - Taps and port mirror
 
 **SDN**
+
+      Software Defined Networ. Uses virtualization to route traffic instead of routers and switches. Separates the logic used to forward or
+      block traffic and the logic used to identify the path to take (data plane and control pane). Uses ABAC to allow administrators to create
+      data plane polices to route traffic instead of ACLsfor traditional hardware.
 
 ### 3.3 Given a scenario, implement secure systems design.
 
@@ -1291,6 +1388,10 @@
 
 - PIV/CAC/smart card
 - IEEE 802.1x
+
+      Port-based authentication protocol. Requires users or devices to authenticate when connecting to a specific wireless access
+      point or a specific physical port. Can use username-password authentication or certificate-based authentication.
+      Prevents rouge devices from connecting.
 
 **File system security**
 
@@ -1872,23 +1973,61 @@
 **Cryptographic protocols**
 
 - WPA
+
+      Wi-Fi Protected Access. Interim replacement for WEP until WPA2 was developed. Susceptible to password-cracking attacks.
+      Uses TKIP, or AES as an upgrade.
+
 - WPA2
+
+      WPA replacement. AKA IEEE 802.11i. Needs to have the WI-FI CERTIFIED logo and use CCMP to meet WPA2 standards. The best
+      cryptographic wireless protocol.
+
 - CCMP
+
+      Counter mode with Cipher block chaining Message Authentication Protocol. Stronger than TKIP.
+
 - TKIP
+
+      Temporal Key Integrity Protocol. Often used with legacy systems. Used with WPA. Has been cracked, so if upgrade to WPA2 is
+      not possible, TKIP should be upgraded to use AES.
 
 **Authentication protocols**
 
 - EAP
+
+      Extensible Authentication Protocol. Is an authentication framework that provides guidance for authentication methods.
+      Provides a method for two computers to create a secure encryption key called a PMK (Pairwise Master Key). Not as secure as CCMP.
+
 - PEAP
+
+      Protected EAP. 
+
 - EAP-FAST
+
+      EAP-Flexible Authentication via Secure Tunneling. Designed by CISCO to be a secure replacement for Lightweight EAP. Supports
+      optional certificates.
+
 - EAP-TLS
+
+
+
 - EAP-TTLS
+
+
+
 - IEEE 802.1x
 - RADIUS Federation
 
 **Methods**
 
 - PSK vs. Enterprise vs. Open
+      
+      WPA and WPA2 can operate in three modes: PSK, Enterprise, or Open
+      PSK: Pre-Shared Key. Users access the wireless network anonymously using a PSK (password). Does not authenticate.
+      Enterprise: Forces users to authenticate with unique credentials before gaining access to the wireless network. Uses 802.1x server,
+      often implemented as RADIUS. 
+      Open: no security. Allows everyone to access the AP.
+
 - WPS
 - Captive portals
 
