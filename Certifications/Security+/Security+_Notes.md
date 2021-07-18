@@ -88,16 +88,58 @@
 **Wireless attacks**
 
 - Replay
+
+      Attacker captures data between two entities, modifies the data, and attempts to impersonate one of the entities by replaying the data.
+      WPA2 with CCMP and AES is protected against replay attacks.
+      WPA with TKIP is vulnerable to replay attacks.
+
 - IV
+
+      Initialization Vector. Is a number used for encryption by combining the IV with a pre-shared key to encrypt data-in-transit. 
+      IV attacks are successful when the same IV is reused, allowing the attacker to identify the pre-shared key.
+   
 - Evil twin
+
+      Rouge AP that has the same SSID as a legitimate access point.
+   
 - Rogue AP
+   
+      Unauthorized access points. Can be used to connect to the network or as a packet sniffer.
+
 - Jamming
+
+      Transmitting signals on the same frequency used by a wireless network. AP powerlevels can be increased and different wireless channels
+      can be used to combat this attack.
+
 - WPS
+
+      Wifi-Protected Setup. Allows users to configure wireless devices with an 8-digit pin instead of a passphrase. The PIN is easily
+      bruteforced and can lead to attackers discovering the passphrase for WPA and WPA2 networks. If WPS is used for easy connections, should be
+      disabled right after it is done being used.
+
 - Bluejacking
+
+      Sending unsolicited messages to nearby Bluetooth devices. Relatively harmless.
+
 - Bluesnarfing
+
+      Unauthorized access to a bluetooth device. Also includes theft of information from a bluetooth device.
+
 - RFID
+
+      Radio Frequency Identification. Common attacks include:
+      - Sniffing or eavesdropping: collect data by tuning into the same frequency. Needs to know what protocol is used by the RFID system.
+      - Replay: configure bogus tags to mimic actual tags on vulnerable objects, allowing theft to be hard to detect.
+      - DoS: Flood the RF with noise, jamming the signal and preventing communication.
 - NFC
+
+      Near Field Communication. Attackers use a NFC reader to capture data from a NFC device. Atennas boost the range and can intercept data
+      transfers.
+
 - Disassociation
+
+      Disassociation attacks remove a wireless client from a wireless network. Normally, the client sends a disassociation frame to terminate
+      the connection. In a disassociation attack, attackers spoof the MAC address of a client, and send the disassociation frame in their place.
 
 **Cryptographic attacks**
 
@@ -241,15 +283,48 @@
 
 **VPN concentrator**
 
+      Dedicated devices for VPNs. Placed in the DMZ. Includes all the services required for secure VPN that supports many clients.
+      A VPN is a virtual private network. It provides remote access to a private network via a public network.
+
 - Remote access vs. site-to-site
+
+      
+
 - IPSec
+
+      Internet Protocol Security. Encrypts data-in-transit through tunnel mode or transport mode. 
+
    - Tunnel mode
+
+            Used by VPNs. Encrypts the entire IP packet used in the internal network. IP address in the internal network
+            remains hidden when intercepted.
+
    - Transport mode
+
+            Used by private networks, not with VPNs. Encrypts only the payload. IP addressed don't need to be encrypted if
+            traffic is transmitted over a private server.
+
    - AH
+
+            Authentication Header. IPSec includes an AH to allow each host to authenticate with each other before communicating.
+            Provides authentication and integrity. Uses Port 51.
+
    - ESP
+
+            Encapsulating Security Protocol. IPSec uses ESP to encrypt data and provie confidentiality. Often includes AH. Uses Port 50.
+
 - Split tunnel vs. full tunnel
+
+      Split tunnel: VPN administrator determines what traffic should be used on the encrypted tunnel. Ex: only traffic destined for the
+      VPN network will be encrypted
+      Full tunnel: all traffic goes through the encrypted tunnel while the user is connected to the VPN. 
+
 - TLS
 - Always-on VPN
+      
+      Always-on VPNs can be used with site-to-site or remote access VPNs. For site-to-site, the VPN connection will be maintained.
+      For remote access, the device will connect to the always-on VPN whenever connected to the Internet.
+         
 
 **NIPS/NIDS**
 
@@ -439,10 +514,24 @@
 - Email
 
 **NAC**
-
+      
+      Network Access Control. Can inspect health of VPN and internal clients. THis is is stuff like checking if anti-virus is
+      up to date.
+      
 - Dissolvable vs. permanent
+
+      Dissolvable: downlaoded and run on the client when the client is logged in remotely. Dissolveable agents remove themselves after
+                   they report to the NAC system or after the remote session ends. OFten used for mobile devices in a BYOD policy to check
+                   for vulnerabilities.
+      Permanent: permanent agent is installed on the client and stays on the client
+
 - Host health checks
+
+      
+
 - Agent vs. agentless
+
+      Agent is permanent. Agentless is dissolvable.
 
 **Mail gateway**
 
@@ -885,6 +974,9 @@
 **Tunneling/VPN**
 
 - Site-to-site
+
+      Includes two VPNs that act as gateways for two networks that are separated geographically.
+
 - Remote access
 
 **Security device/technology placement**
@@ -937,9 +1029,13 @@
    - Appliance
    - Kiosk
    - Mobile OS
+
 - Patch management
 - Disabling unnecessary ports and services
 - Least functionality
+
+      Systems should be deployed with the lease amount of servicves, protocols, and applications.
+
 - Secure configurations
 - Trusted operating system
 - Application allow list/deny list
@@ -1275,13 +1371,29 @@
       
 **TACACS+**
 
+      Terminal Access Controller Access Control System Plus. Cisco alternative to RADIUS. Two improvements over RADIUS:
+      - Encrypts the entire authentication process instead of just the password.
+      - Uses multiple challenges and responses between the client and the server.
+      Can interact with Kerberos.
+
 **CHAP**
+
+      Challenge Handshake Authentication Protocol. Uses PPP but is more secure than PAP. Passes a shared secret but encrypts it with a hash
+      combined with a nonce.
 
 **PAP**
 
+      Password Authentication Protocol. Sends credentials in clear text. Uses PPP (Point-to-Point Protocol).
+
 **MSCHAP**
 
+      Microsoft CHAP. Improved CHAP for Microsoft clients.
+      MSCHAPTv2 is an improved version by mutually authenticating. Client authenticates to server, server authenticates to client.
+
 **RADIUS**
+
+      Remote Authentication Dial-In User Service. Centralized authentication service, allowing VPN servers to forward their requests to one
+      RADIUS server instead of separate databases. Uses a shared-secret. Can be used as an 802.1x server with WPA2 Enterprise Mode.
 
 **SAML**
 
@@ -2000,7 +2112,8 @@
 
 - PEAP
 
-      Protected EAP. 
+      Protected EAP. Extra layer of protection for EAP to protect the channel. Encrypts EAP using a TLS tunnel. Requires
+      certificates on the server but not the client. Used in MS-CHAPv2
 
 - EAP-FAST
 
@@ -2009,14 +2122,23 @@
 
 - EAP-TLS
 
-
+      One of the most secure EAP standards. Primary difference between EAP-TLS and PEAP is that EAP-TLS requires certificates on
+      802.1x server and on each of the wireless clients
 
 - EAP-TTLS
 
-
+      Extension of PEAP. Allows systems to use older authentication methods like PAP in a TLS tunnel. Requires cerftificates on
+      802.1x server but not the clients.
 
 - IEEE 802.1x
+
+      Port-based authentication protocol. Requires users or devices to authenticate when connecting to a specific wireless point or
+      a specfic physical port. Prevents rouge devices from connecting to a network. Can be implemented with RADIUS.
+      Required by Enterprise mode.
+
 - RADIUS Federation
+
+      Can create federation using 802.1x and RADIUS servers.
 
 **Methods**
 
@@ -2029,7 +2151,16 @@
       Open: no security. Allows everyone to access the AP.
 
 - WPS
+
+      Wi-Fi Protected Setup. Allows user to configure wireless devices with an 8-digit pin instead of a passphrase. Easily brute-forced.
+
 - Captive portals
+
+      Forces clients using web browsers to complete a specifc process before accessing the network. This can be logging in or aggreeing
+      to certain terms. Usages include:
+      - Free Internet access: clients agree to acceptable use policy before being granted access
+      - Paid Internet access: clients use a pre-created account or enter credit card information for access.
+      - Alternative to IEEE 802.1x: 802.1x is expensive. Captive portals require authentication 
 
 
 ### 6.4 Given a scenario, implement public key infrastructure.
