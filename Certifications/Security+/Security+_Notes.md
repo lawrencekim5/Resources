@@ -1757,7 +1757,7 @@
 
 **MTTR**
 
-      Measures average time it takes to restore/repair a system.
+      Measures average time it takes to restore/repair the WHOLE system.
 
 **Mission-essential functions**
 
