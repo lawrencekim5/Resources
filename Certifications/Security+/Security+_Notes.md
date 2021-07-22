@@ -1848,6 +1848,14 @@
       Archive media
 
 
+      Cache
+      RAM
+      Swap/paging file
+      HDD
+      Logs on remote sstems
+      Archive media
+
+
 **Chain of custody**
 
       Provides assurance that evidence is controlled and handled properly after collection.
