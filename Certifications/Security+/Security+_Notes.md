@@ -62,6 +62,9 @@
 - Injection
 - Cross-site scripting
 - Cross-site request forgery
+
+      Tricks users into performing actions without their knowledge. Uses specially crafted HTML links (Ex: http://www.google.com/search?q=Success).
+
 - Privilege escalation
 - ARP poisoning
 - Amplification
@@ -71,14 +74,26 @@
       This will redirect users to the malicious site. 
 
 - Domain hijacking
+
+      Changes the registration of the domain to redirect users.
+
 - Zero day
 - Replay
 - Pass the hash
 - Hijacking and related attacks
    - Clickjacking
    - Session hijacking
+
+            Captures the session ID stored in a cookie to impersonate a user.
+
    - URL hijacking
+
+            Uses common tyos of popular URLs to misdirect traffic.
+
    - Typo squatting
+
+            Same as URL hijacking
+
 - Driver manipulation
    - Shimming
    - Refactoring
@@ -144,6 +159,9 @@
 **Cryptographic attacks**
 
 - Birthday
+
+      Attacker creates a password that has the same hash as the actual password (hash collision).
+
 - Known plain text/cipher text
 - Rainbow tables
 - Dictionary
@@ -151,6 +169,10 @@
    - Online vs. offline
 - Collision
 - Downgrade
+
+      Forces a system to downgrade its security. Ex: Attacker configures their system to only use SSL instead of TLS. Allows the attackers to
+      launch SSL based atacks on communicators.
+
 - Replay
 - Weak implementations
 
@@ -244,7 +266,13 @@
 - Integer overflow
 - Buffer overflow
 - Pointer dereference
+
+      Pointers point to memory areas in programming. Derefferencing those pointers can cause an application to crash.
+
 - DLL injection
+
+      Applications use Dynamic Link Library. DLLs are compiled code that application can run without recreating the code. DLL injection
+      injects malicious DLLs into a system.
 
 **System sprawl/undocumented assets**
 
@@ -448,12 +476,23 @@
 
 **Load balancer**
 
+      Distributes loads across multiple computers.
+
 - Scheduling
    - Affinity
+
+            Sends requests to the same server based on the requestor's IP address. Sticks a user to a specific server for the duration
+            of their session.
+
    - Round-robin
+
+            Load balancer sends first request to server 1, second request to server 2, etc.
+
 - Active-passive
 - Active-active
 - Virtual IPs
+
+      Used by software load balancers.
 
 **Access point**
 
@@ -648,8 +687,17 @@
       server. Also shows config info for NICs on a system. ifconfig allows the users to also configure NICs such as enabling promiscuous mode.
 
 - tcpdump
+
+      Command line protocol analyzer. Captures packets which can also be analyzed in Wireshark.
+
 - nmap
+
+      Network scanner. Identifies host and IP addresses, protocols and running services, and operating system of the host.
+
 - netcat
+
+      Commandline tool that can remotely administer servers. Can also be used for banner grabbing (getting information about
+      a computer and its running services). Can port scan.
 
 ### 2.3 Given a scenario, troubleshoot common security issues.
 
@@ -801,6 +849,10 @@
       encrypted files over a network. 
 
 - S/MIME
+
+      Secure/Multipurpose Internet Mail Extensions. One of the most popular standards used to digitally sign and encrypt email. Uses RSA for asymmetric
+      and AES for symmetric. PKI is needed for RSA.
+
 - SRTP
 
       Secure Real-time Transport Protocol. RTP delivers voice and video over IP networks. Includes VoIP, media streaming, etc.
@@ -826,7 +878,8 @@
 
 - SSL/TLS
 
-      Secure Sockets Layer/Transport Layer Security. SSL has a vulnerability that was not patched. TLS is strictly better.
+      Secure Sockets Layer/Transport Layer Security. SSL has a vulnerability that was not patched. TLS is strictly better. 
+      Both are encryption protocols used to encrypt data-in-transit. Both provide certificate based authentication.
 
 - HTTPS
 
@@ -1631,15 +1684,33 @@
 **Agreement types**
 
 - BPA
+
+      Business Partners Agreement. Identifies shares of profit or losses and expected responsibilities.
+
 - SLA
+
+      Service Level Agreement. Agreement between  a company and a vendor that stipulates performance expectations such as minimum uptime
+      and maximum downtime.
+
 - ISA
+
+      Interconnection Security Agreement. Specifies technical and security requirements for planning, establishing, maintaining, and disconnecting
+      a secure conenction between two or more entities.
+
 - MOU/MOA
+
+      Exploratory agreement that expresses an understanding between two or more parties towards reaching a common goal. No technical details,
+      no strict guidelines, no penalties.
 
 **Personnel management**
 
 - Mandatory vacations
 - Job rotation
 - Separation of duties
+
+      Prevents any single person or entity from being able to complete all of the functions of a critical or sensitive process by diving
+      tasks among employees.
+
 - Clean desk
 - Background checks
 - Exit interviews
@@ -1665,9 +1736,18 @@
 
 **RTO/RPO**
 
+      Recovery Time Objective: maximum acceptable amount of time it takes to restore a system.
+      Recovery Point Objective: identifies the time in which data loss becomes acceptable. Refers to the amount of data
+                                that can be afforded to lose. Ex: company may decide that data loss is acceptable, but
+                                they want at least one week of data to be backed up. RPO is one week.
+
 **MTBF**
 
+      Measures average system reliability usually in hours. Higher numbers are better.
+
 **MTTR**
+
+      Measures average time it takes to restore/repair a system.
 
 **Mission-essential functions**
 
@@ -1685,8 +1765,12 @@
 
 **Privacy impact assessment**
 
+      Identifies the identifies and reduces risk of the loss of PII.
+
 **Privacy threshold assessment**
 
+      Questionaire completed by system or data owners. Indentifies if the system processes data that exceeds the thresholds for PII.
+      Also identifies PII on a system.
 
 ### 5.3 Explain risk management processes and concepts.
 
@@ -1745,9 +1829,22 @@
 
 **Order of volatility**
 
+      Data in cache memory: processor cache, hard drive cache
+      Data in RAM
+      Swap file/paging file
+      Data on local disk drives
+      Logs stored on remote systems
+      Phsyical configuration/network topology
+      Archive media
+
+
 **Chain of custody**
 
+      Provides assurance that evidence is controlled and handled properly after collection.
+
 **Legal hold**
+
+      Court order to maintain different types of data as evidence. Data retention policies help with not violating legal hold.
 
 **Data acquisition**
 
@@ -1799,6 +1896,10 @@
 - Exercises/tabletop
 - After-action reports
 - Failover
+
+      Failover clusters provide high availability. Uses multiple servers in a cluster configuration so that if one fails the other takes over.
+      Can monitor each other to check the overall health of the cluster.
+
 - Alternate processing sites
 - Alternate business practices
 
@@ -1870,10 +1971,23 @@
 - Burning
 - Shredding
 - Pulping
+
+      Reducing shredded paper to mash or puree.
+
 - Pulverizing
 - Degaussing
+
+      Magnetically destroys a disk. The data becomes unreadable and the disk becomes unusable.
+
 - Purging
+
+      General sanitization term that indicates that all SENSITIVE data has been removed from a device.
+
 - Wiping
+
+      Process of removing all remnants of data on a disk. Overwrites data with 1s and 0s on the bit level multiple times to ensure data is
+      gone.
+      
 
 **Data sensitivity labeling and handling**
 
@@ -1887,8 +2001,19 @@
 **Data roles**
 
 - Owner
+
+      Person with overall responsibility of the data. Usually a high level postion like the CEO. 
+
 - Steward/custodian
+
+      Data Steward: Responsible for data accuracy, privacy, and security. Associates sensitivity labels to the data. Ensures compliance with data laws and
+                    standards.
+      Data Custodian: Manages the access rights to the data. Implements security controls. Sometimes is the same person as the steward.
+
 - Privacy officer
+
+      Responsible for the organization's data privacy. Sets policies, implements processes and procedures.
+
 
 **Data retention**
 
@@ -1919,7 +2044,11 @@
 
 **Diffusion**
 
+      The quality of ensuring that small changes in the plain text create large changes in the ciphertext.
+
 **Confusion**
+
+      The quality of making the plain text vastly different from the cipher text.
 
 **Collision**
 
@@ -1933,7 +2062,11 @@
 
 **Session keys**
 
+      Only used for one session.
+
 **Ephemeral key**
+
+      Short lifetime, usually re-created for each session.
 
 **Secret algorithm**
 
@@ -1943,7 +2076,12 @@
 
 **Data-at-rest**
 
+      Data stored on media. Commonly encrypted.
+
 **Data-in-use**
+
+      Data being used by a computer. Since the computer needs to process the data, it is not encrypted while being used. Data-in-use
+      is decrypted and stored in memory 
 
 **Random/pseudo-random number generation**
 
@@ -1952,9 +2090,17 @@
 **Implementation vs. algorithm selection**
 
 - Crypto service provider
+
+      Software library of cryptographic standards and alogrithms. Distributed within crypto modules.
+
 - Crypto modules
 
+      Set of hardware, software, or firmware that implements cryptographic functions.
+
 **Perfect forward secrecy**
+
+      Indicates that a cryptographic system generates random public keys for each session. Even if given the same input, the key
+      will be different.
 
 **Security through obscurity**
 
@@ -2040,38 +2186,100 @@
 - DES
 - 3DES
 - RC4
+
+      Stream cipher.
+
 - Blowfish/Twofish
 
 **Cipher modes**
 
 - CBC
+
+      Cipher Block Chaining. Used by symetric block ciphers. Uses an IV to encrypt the first block, then combines subsequent blocks with the
+      previous blocks using XOR. Not efficient due to this, suffers from pipeline delays.
+
 - GCM
+
+      Galois Counter Mode. Combines Counter mode with Galois mode of authentication (doesn't authentication users, is ensures integrity
+      and confidentiality). Uses hashes for integrity. Widely used due to its efficiency and performance.
+
 - ECB
+
+     Electronic Codebook. Simplest block cipher mode. Encrypts each block of plaintext using the same key, causing blocks with the same
+     plain text to have the same cipher text. Not recommended to use.
+
 - CTR
+
+      Counter Mode. Also CTM or CM. Converts a block cipher into a stream cipher. Each block uses the same IV, but is combined with a counter
+      value to make a different encryption key for each block.
+
 - Stream vs. block
+
+      Stream ciphers encrypt bit by bit. More efficient when data size is unknown or is contantly being transmitted (voice and video) (continuous stream).
+      Block ciphers encrypt data in chunks (64-bit, 128-bit). Divides transmissions and then encrypts. Most efficient when the size of the data is known.
 
 **Asymmetric algorithms**
 
 - RSA
+
+      Widely used to protect data such as email or other data transmitted over the internet. Uses private key and public key as a matched pair.
+
 - DSA
 - Diffie-Hellman
+
+      Secure key exchange algorithm used to privately share a symmetric key between two parties. Supports static and ephermeral keys. RSA is based on
+      Diffie-Hellman
+
    - Groups
    - DHE
+
+            Diffie-Hellman Ephemeral uses ephemeral keys, generating different keys for each session. Also referred to as EDH.
+
    - ECDHE
+
+            Elliptic Curve Diffie-Hellman Ephemeral. Uses ephemeral keys generated by ECC. ECDH uses static keys generated by ECC.
+
 - Elliptic curve
+
+      Uses curves to generate asymetric keys. Commonly used in mobile devices due to low processing power needed.
+
 - PGP/GPG
+
+      Can encrypt, decrypt, and digitally sign emails. GNU Privacy Guard is free software based on the OpenPGP standard.
 
 **Hashing algorithms**
 
 - MD5
+
+      128 bit. Considered cracked, usage discouraged.
+
 - SHA
+
+      SHA1: 160 bit. Similar to MD5
+      SHA2: 256 bit.
+
 - HMAC
+
+      Hash-based Message Authentication Code. Fixed-length string of bits that is added to other hashing algorithms (HMAC-MD5 and HMAC-SHA1).
+      Uses a shared secret to provide both integrity and authenticity.
+
 - RIPEMD
+
+      RACE Integrity Primetives Evaluation Message Digest. RIPEMD-160 has 160 bit size. Can have other sizes as well. Used for integrity.
 
 **Key stretching algorithms**
 
+      Rehashing to make the hash more complex. Can even add salt for greater complexity.
+
 - BCRYPT
+
+      Based on the blowfish cipher. Often used on Linux and Unix to protect passwords stored in the shadow password file. 
+      Salts by adding additional bits before encrypting with Blowfish to create a 60 character string. 
+
 - PBKDF2
+
+      Password-Based Key Derivation Function 2. Key stretching technique. Uses 64 bit salts and HMAC to protect passwords against brute force
+      attacks. Used by WPA2 and Cisco.
 
 **Obfuscation**
 
@@ -2168,44 +2376,138 @@
 **Components**
 
 - CA
+
+      Certificate Authority. Issues, manages, validates, and revokes certificates. Basically a DMV but for networks.
+
 - Intermediate CA
 - CRL
+
+      Certificate Revocation List. Revokes a certificate if it is one the list.
+
 - OCSP
+
+      Online Certificate Status Protocol. Method to validate certificate status. Allows client to query the CA with the serial number
+      of the certificate. CA responds back with "good," "revoked," or "unknown."
+
 - CSR
+
+      Certificate Signing Request. Formatted via the PKCS (Public-Key Cryptography Standards) #10 specification. Only includes the public key,
+      not the private key. Also includes the purpose of the certificate, info about the website, about the requester, and public key.
+      Sent to CA. Create RSA private key to generate public which which is included in the CSR and sent to the CA.
+
 - Certificate
+
+      Digital document that includes the public key and the owner of the certificate.
+
 - Public key
+      
+      
+      
 - Private key
+
+      
+
 - Object identifiers (OID)
+
+      String of numbers that are used to identify every object in a certificate.
 
 **Concepts**
 
 - Online vs. offline CA
 - Stapling
+
+      OSCP stapling appends a digitally signed timestamped OSCP response to a certifcate. This reduces CA queries.
+
 - Pinning
 - Trust model
+
+      Web of Trust is a type of trust model. Uses self-signed certificates and third party vouches for a certificate. A reliable third party
+      makes a web of trust a secure alternative to a certificate chain. Unreliable third party results in untrustworthy certificates.
+
 - Key escrow
+
+      The process of putting a copy of a private key in a safe environment. Can designate employees or third parties to protect a copy
+      of the private key.
+
 - Certificate chaining
+
+      Combines all the certificates from to root CA to the certificate issued from the end user.
 
 **Types of certificates**
 
 - Wildcard
+
+      Starts with * and can be used for multiple domains, but each domain must have the same root name. Basically can only be used for
+      subdomains. Ex: accounts.google.com and support.google.com. Reduces administrative burden of managing multiple certificates.
+
 - SAN
+
+      Subject Advanced Name. Used for multiple domains that have different names but are owned by the same organization. Commonly used
+      for systems with the same base domain name but different top-level doamins. Ex: a single SAN certificate can be used for google.com,
+      google.net, or www.google.com.
+
 - Code signing
+
+      Certificates used to developers to authenticate executables, indicating that the code has not been modified.
+
 - Self-signed
+
+      Certificate that was not issued by a trusted CA. Created by private CAs usually for use within an internal network. Administrators place
+      these self-signed certificates into the trusted root CA store for enterprise computers. Cheaper than using a public CA.
+
 - Machine/computer
+
+      Certificates that are sent to devices. Identifies computers inside a domain.
+
 - Email
+
+      Email certificates are used to encrypt emails and to digitally sign emails.
+
 - User
+
+      Certificates assigned to users. Used for encryption, authentication, smart cards, etc. Ex: Microsoft user certificate that allows
+      users to use EFS (encrypting file system) to encrypt data.
+
 - Root
+
+      Root Certificate. First certificate created by the CA. Any certificates created under the root certificate are automatically trusted.
+
 - Domain validation
+
+      Domain-validated certificate indicates that the certificate requestor has some control over a DNS domain. The CA takes extra steps
+      to contact the requestor to provide additional evidence that certificate and organization are trustworthy.
+
 - Extended validation
+
+      Extended validation certificates use additional steps beyond domain validation. The address bar includes the name of the company
+      before the URL. Ex: PayPal, Inc [US] | www.paypal.com. 
 
 **Certificate formats**
 
+      Most certificates use X.509. Certificates used to distribute CRLs use X.509 v2. Certificates are usually stored as bin or BASE64 files.
+
 - DER
+
+      Distinguished Encoding Rules. Binary format. Includes headers and footers to identify contents. Contents vary.
+
 - PEM
+
+      Privacy Enhanced Mail. Misleading name, can be used for almost everyithing. Uses CER or DER format. Can contain Server certificates,
+      certificate chains, keys, CRL
+
 - PFX
+
+      Same usage as PKCS#12. Used on Windows to import and export certificates.
+
 - CER
+
+      Canonical Encoding Rules. ASCII format. No headers or footers. Contents Vary.
+
 - P12
+
+      Uses PKCS#12. CER based. Used to hold certificates with the private key.
+
 - P7B
 
-
+      Uses PKCS#7. DER based. Used to share public keys with proof of identity of the certificate holder. Can also share certificate chain
+      and CRL, but never private keys.
