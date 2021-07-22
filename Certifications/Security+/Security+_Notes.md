@@ -1065,8 +1065,18 @@
 **Hardware/firmware security**
 
 - FDE/SED
+
+      Fulle DIsk Encryption: method to encrypt an entire disk.
+      Self Encrypting Drive: drive that includes hardware and software necessary to encrypt ahard drive. Users input credentials to use.
+
 - TPM
+
+      Trusted PLatform Module. Hardware chip on the motherboard that is included in laptops and mobile devices. Provides full disk encryption.
+
 - HSM
+
+      Hardware Security Module. Removable or external device that can generate, store, and manage RSA keys used in asymmetric encryption.
+
 - UEFI/BIOS
 - Secure boot and attestation
 - Supply chain
